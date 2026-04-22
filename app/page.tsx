@@ -27,8 +27,7 @@ export default function Home() {
               <span className="font-medium">15+ years</span> across OKX, HSBC,
               Melco, and HKJC — spanning 0→1 product work, design systems at
               scale, and the cross-functional leadership that holds them
-              together. I work where interface, infrastructure, and strategy
-              overlap.
+              together.
             </p>
 
             {/* Positioning strip */}
@@ -242,8 +241,8 @@ export default function Home() {
                 company{" "}
                 <span className="text-ink">Human For Human 合同会社</span>. Most
                 of my recent work sits at the intersection of design systems
-                and agentic AI — the question of what design infrastructure
-                becomes when the system can design itself.
+                and agentic AI — building the infrastructure that keeps human
+                judgment in the loop when AI is doing the generating.
               </p>
               <p className="pt-2">
                 <a
@@ -268,7 +267,7 @@ const hireItems = [
     num: "01",
     title:
       "A product needs to go from <em class='font-display italic text-accent'>messy 0 to shippable 1.</em>",
-    body: "Early-stage work where the shape isn't clear, the team is small, and someone has to translate strategy into screens without a pre-existing system. Examples: OKX Lite, Melco's loyalty app.",
+    body: "No existing system, small team, ambiguous brief. Someone has to make the first hard calls and ship. Examples: OKX Lite, Melco's loyalty app.",
   },
   {
     num: "02",
@@ -284,15 +283,15 @@ const hireItems = [
   {
     num: "04",
     title:
-      "AI is changing what the design team has to produce, and no-one has a clear answer yet.",
-    body: "Agentic workflows are reshaping design-to-code, tokens-to-runtime, and what design infrastructure even means. I've been working on this in public since 2024.",
+      "AI is changing what design teams ship — and the infrastructure behind it.",
+    body: "Agentic workflows are reshaping design-to-code, tokens-to-runtime, and what design infrastructure even means. I've been building and writing on this since 2024.",
   },
 ];
 
 const impactStats = [
-  { value: "15", suffix: "+", label: "Years of craft" },
+  { value: "15", suffix: "+", label: "Years in practice" },
   { value: "12", label: "Global markets shipped" },
-  { value: "40", suffix: "+", label: "Product teams supported" },
+  { value: "40", suffix: "+", label: "Teams shipped with" },
   { value: "100", label: "Top ADPList mentor" },
 ];
 
@@ -318,7 +317,7 @@ const expertise = [
   {
     tag: "04 — Agentic AI",
     title: "Designing for non-deterministic systems",
-    body: "The hard problems in AI UX aren't 'what the button looks like' — they're confidence states, correction flows, trust calibration, and designing review-ability into outputs that weren't deterministic to begin with. I work on these inside agentic design-systems pipelines.",
+    body: "The hard problems in AI UX aren't 'what the button looks like' — they're confidence states, correction flows, trust calibration, and making AI outputs reviewable by design. I work on this inside live agentic pipelines.",
     meta: "Uncertainty states · Correction UX · MCP · Tokens-to-code",
   },
   {
