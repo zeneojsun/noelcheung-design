@@ -13,12 +13,12 @@ export default function Home() {
         <div className="max-w-site mx-auto px-6 md:px-12">
           {/* HERO */}
           <section className="pt-24 md:pt-32 pb-16 md:pb-20">
-            <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-10 flex items-center gap-3 rise rise-1">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-rule font-mono text-[11px] font-medium tracking-[0.06em] text-muted mb-10 rise rise-1">
               <span className="avail-dot-pulse" />
-              Open to Staff / Lead roles · Consulting · Q2 2026
-            </p>
+              Open to Staff / Lead roles · Q2 2026
+            </div>
 
-            <h1 className="display text-[44px] md:text-[88px] leading-[1.02] tracking-[-0.035em] mb-8 max-w-[18ch] rise rise-2">
+            <h1 className="display text-[40px] md:text-[80px] leading-[1.08] tracking-[-0.03em] mb-8 max-w-[20ch] rise rise-2">
               I design <em>product systems</em> for fintech, crypto, and
               enterprise teams.
             </h1>
@@ -97,7 +97,7 @@ export default function Home() {
           {/* WHY HIRE ME */}
           <section className="py-24 md:py-32 grid grid-cols-1 md:grid-cols-[4fr_6fr] gap-12 md:gap-16">
             <div>
-              <p className="font-mono text-[12px] uppercase tracking-[0.12em] text-muted mb-6">
+              <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted mb-6">
                 § 01 — Engagements
               </p>
               <h2 className="display text-3xl md:text-5xl leading-[1.05]">
