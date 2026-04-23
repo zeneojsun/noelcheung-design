@@ -2,16 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Light (default) ─────────────────────────────────── */
 :root {
-  --paper: #f4f1ea;
-  --ink: #1a1815;
-  --accent: #a8421e;
-  --muted: #6b655d;
-  --rule: #d8d3c8;
+  --bg:         #fafafa;
+  --surface:    #ffffff;
+  --text:       #111111;
+  --text-muted: #6b6b6b;
+  --hairline:   #e8e8e8;
+  --hover:      #f0f0f0;
 
-  --font-display: "Fraunces", Georgia, serif;
-  --font-sans: "Geist", -apple-system, sans-serif;
-  --font-mono: "Geist Mono", ui-monospace, monospace;
+  --font-sans:  "Inter Tight", -apple-system, sans-serif;
+  --font-mono:  "JetBrains Mono", ui-monospace, monospace;
+  --font-display: var(--font-sans);
+}
+
+/* ─── Dark ────────────────────────────────────────────── */
+.dark {
+  --bg:         #0a0a0a;
+  --surface:    #141414;
+  --text:       #ededed;
+  --text-muted: #8a8a8a;
+  --hairline:   #1f1f1f;
+  --hover:      #1a1a1a;
 }
 
 * { box-sizing: border-box; }
@@ -24,59 +36,43 @@ html {
 }
 
 body {
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--bg);
+  color: var(--text);
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.55;
   letter-spacing: -0.006em;
-  position: relative;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.035 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity: 0.6;
-  z-index: 1;
-  pointer-events: none;
-  mix-blend-mode: multiply;
-}
-
-.site-content {
-  position: relative;
-  z-index: 2;
-}
-
+/* ─── Display utility — Inter Tight, weight 500 ────────── */
+/* Used for headings/cards throughout the existing markup.  */
+/* Phase 5 will replace with typed classes.                */
 .display {
-  font-family: var(--font-display);
-  font-optical-sizing: auto;
-  font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 0;
-  font-weight: 400;
+  font-family: var(--font-sans);
+  font-weight: 500;
   letter-spacing: -0.025em;
 }
 
 .display em {
   font-style: italic;
-  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
-  color: var(--accent);
 }
 
+/* ─── Animations ─────────────────────────────────────── */
 @keyframes rise {
   from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.rise { animation: rise 0.85s cubic-bezier(0.19, 1, 0.22, 1) both; }
+.rise   { animation: rise 0.85s cubic-bezier(0.19, 1, 0.22, 1) both; }
 .rise-1 { animation-delay: 0.08s; }
-.rise-2 { animation-delay: 0.2s; }
+.rise-2 { animation-delay: 0.20s; }
 .rise-3 { animation-delay: 0.34s; }
 .rise-4 { animation-delay: 0.48s; }
 
+/* ─── Availability pulse ─────────────────────────────── */
 @keyframes avail-pulse {
-  0%, 100% { box-shadow: 0 0 0 3px rgba(46, 122, 69, 0.2); }
-  50% { box-shadow: 0 0 0 6px rgba(46, 122, 69, 0.05); }
+  0%, 100% { box-shadow: 0 0 0 3px rgba(46,122,69,0.2); }
+  50%       { box-shadow: 0 0 0 6px rgba(46,122,69,0.05); }
 }
 
 .avail-dot-pulse {
@@ -85,32 +81,31 @@ body::before {
   height: 7px;
   border-radius: 50%;
   background: #2e7a45;
-  box-shadow: 0 0 0 3px rgba(46, 122, 69, 0.2);
+  box-shadow: 0 0 0 3px rgba(46,122,69,0.2);
   animation: avail-pulse 2.4s ease-in-out infinite;
 }
 
+/* ─── Marquee ────────────────────────────────────────── */
 @keyframes marquee {
   to { transform: translateX(-50%); }
 }
 
 .marquee-inner {
   display: flex;
-  gap: 0;
   animation: marquee 42s linear infinite;
   width: max-content;
 }
 
-.tabular {
-  font-variant-numeric: tabular-nums;
-}
+/* ─── Misc utilities ─────────────────────────────────── */
+.tabular { font-variant-numeric: tabular-nums; }
 
 ::selection {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--text);
+  color: var(--bg);
 }
 
 :focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--text);
   outline-offset: 3px;
-  border-radius: 1px;
+  border-radius: 2px;
 }

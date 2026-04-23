@@ -5,11 +5,16 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "npm run build:cv",
+    "build:cv": "node scripts/generate-cv-pdf.mjs",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "next": "^16.2.4",
+    "next-themes": "^0.4.6",
+    "puppeteer": "^24.42.0",
     "react": "19.0.0",
     "react-dom": "19.0.0"
   },

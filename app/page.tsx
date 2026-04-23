@@ -31,7 +31,7 @@ export default function Home() {
             </p>
 
             {/* Positioning strip */}
-            <div className="grid grid-cols-1 md:grid-cols-[1.4fr_2fr_1fr] border-y border-ink mt-14 rise rise-4">
+            <div className="grid grid-cols-1 md:grid-cols-[1.4fr_2fr_1fr] border-y border-rule mt-14 rise rise-4">
               <div className="p-5 md:p-6 border-b md:border-b-0 md:border-r border-rule">
                 <p className="font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-muted mb-2">
                   Role
@@ -67,7 +67,7 @@ export default function Home() {
               {siteConfig.clients.map((c) => (
                 <span
                   key={c}
-                  className="display text-lg md:text-xl py-2 border-b border-rule hover:text-accent hover:border-accent transition-colors cursor-default"
+                  className="display text-lg md:text-xl py-2 border-b border-rule hover:opacity-60 transition-opacity cursor-default"
                 >
                   {c}
                 </span>
@@ -76,17 +76,17 @@ export default function Home() {
           </section>
         </div>
 
-        {/* MARQUEE — full bleed */}
-        <div className="bg-ink border-y border-ink py-[18px] overflow-hidden">
+        {/* MARQUEE — full bleed, hardcoded dark in both modes */}
+        <div className="bg-[#111111] border-y border-[#111111] py-[18px] overflow-hidden">
           <div className="marquee-inner">
             {[...siteConfig.marqueeItems, ...siteConfig.marqueeItems].map(
               (item, i) => (
                 <span
                   key={i}
-                  className="font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-paper px-10 whitespace-nowrap flex items-center gap-10"
+                  className="font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-[#ededed] px-10 whitespace-nowrap flex items-center gap-10"
                 >
                   {item}
-                  <span className="inline-block w-[5px] h-[5px] rounded-full bg-accent flex-shrink-0" />
+                  <span className="inline-block w-[5px] h-[5px] rounded-full bg-[#ededed]/30 flex-shrink-0" />
                 </span>
               )
             )}
@@ -98,11 +98,10 @@ export default function Home() {
           <section className="py-24 md:py-32 grid grid-cols-1 md:grid-cols-[4fr_6fr] gap-12 md:gap-16">
             <div>
               <p className="font-mono text-[12px] uppercase tracking-[0.12em] text-muted mb-6">
-                § 01 — Engagements
+                01 / Engagements · 委託
               </p>
               <h2 className="display text-3xl md:text-5xl leading-[1.05]">
-                I'm usually brought in{" "}
-                <em>when:</em>
+                I'm usually brought in when:
               </h2>
             </div>
 
@@ -111,10 +110,10 @@ export default function Home() {
                 <li
                   key={i}
                   className={`grid grid-cols-[32px_1fr] gap-5 py-6 border-t border-rule ${
-                    i === 0 ? "border-t-ink" : ""
+                    i === 0 ? "border-t-rule" : ""
                   }`}
                 >
-                  <span className="font-mono text-[11px] font-medium tracking-wide text-accent pt-1">
+                  <span className="font-mono text-[11px] font-medium tracking-wide text-muted pt-1">
                     {item.num}
                   </span>
                   <div>
@@ -133,16 +132,16 @@ export default function Home() {
 
           {/* WORK */}
           <section id="work" className="py-24 md:py-28">
-            <div className="flex items-end justify-between mb-14 pb-6 border-b border-ink">
+            <div className="flex items-end justify-between mb-14 pb-6 border-b border-rule">
               <div>
                 <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-3">
-                  § 02 — Selected Work
+                  02 / Selected Work · 案例
                 </p>
                 <h2 className="display text-3xl md:text-5xl">Case studies.</h2>
               </div>
               <a
                 href="/work"
-                className="font-mono text-[12px] uppercase tracking-wider pb-[3px] border-b border-ink hover:text-accent hover:border-accent transition-colors"
+                className="font-mono text-[12px] uppercase tracking-wider pb-[3px] border-b border-rule hover:opacity-60 transition-opacity"
               >
                 Full index →
               </a>
@@ -156,24 +155,24 @@ export default function Home() {
           </section>
         </div>
 
-        {/* IMPACT BAND — full bleed dark */}
-        <section className="bg-ink text-paper py-20 my-10">
+        {/* IMPACT BAND — full bleed, hardcoded dark in both modes */}
+        <section className="bg-[#111111] text-[#ededed] py-20 my-10">
           <div className="max-w-site mx-auto px-6 md:px-12">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-paper/10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#ededed]/10">
               {impactStats.map((stat, i) => (
                 <div
                   key={i}
-                  className="bg-ink p-8 md:p-8 text-center md:text-left"
+                  className="bg-[#111111] p-8 text-center md:text-left"
                 >
-                  <div className="display text-[44px] md:text-[72px] leading-none mb-3 tabular">
+                  <div className="font-sans font-medium text-[44px] md:text-[72px] leading-none mb-3 tabular tracking-tight">
                     {stat.value}
                     {stat.suffix && (
-                      <sup className="display italic text-[0.5em] text-accent ml-[2px]">
+                      <sup className="text-[0.5em] text-[#ededed]/60 ml-[2px]">
                         {stat.suffix}
                       </sup>
                     )}
                   </div>
-                  <p className="font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-paper/55">
+                  <p className="font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-[#ededed]/55">
                     {stat.label}
                   </p>
                 </div>
@@ -185,21 +184,21 @@ export default function Home() {
         <div className="max-w-site mx-auto px-6 md:px-12">
           {/* EXPERTISE */}
           <section className="py-24 md:py-28">
-            <div className="flex items-end justify-between mb-14 pb-6 border-b border-ink">
+            <div className="flex items-end justify-between mb-14 pb-6 border-b border-rule">
               <div>
                 <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-3">
-                  § 03 — Capabilities
+                  03 / Capabilities · 能力
                 </p>
                 <h2 className="display text-3xl md:text-5xl">
-                  Where I <em>operate.</em>
+                  Where I operate.
                 </h2>
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-rule border border-rule">
               {expertise.map((x, i) => (
-                <div key={i} className="bg-paper p-8 md:p-9">
-                  <p className="font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-accent mb-4">
+                <div key={i} className="bg-surface p-8 md:p-9">
+                  <p className="font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-muted mb-4">
                     {x.tag}
                   </p>
                   <h3 className="display text-[22px] leading-[1.2] mb-3">
@@ -218,7 +217,7 @@ export default function Home() {
           <section id="about" className="py-24 md:py-32 grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10 md:gap-20">
             <div>
               <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-3">
-                § 04 — About
+                04 / About · 關於
               </p>
               <h2 className="display text-3xl md:text-5xl leading-[1]">
                 A long path,
@@ -228,13 +227,10 @@ export default function Home() {
             </div>
             <div className="space-y-6 text-lg leading-[1.6]">
               <p>
-                I started in{" "}
-                <em className="font-display italic text-accent">
-                  fine art and graphic design
-                </em>{" "}
-                fifteen years ago, then moved through visual design, UI, UX,
-                and product — eventually leading design systems at enterprise
-                scale. Each step made the previous one more useful, not less.
+                I started in fine art and graphic design fifteen years ago,
+                then moved through visual design, UI, UX, and product —
+                eventually leading design systems at enterprise scale. Each
+                step made the previous one more useful, not less.
               </p>
               <p className="text-muted">
                 Today I work independently from Fukuoka, Japan, through my own
@@ -247,7 +243,7 @@ export default function Home() {
               <p className="pt-2">
                 <a
                   href="/about"
-                  className="font-mono text-[12px] uppercase tracking-wider pb-[3px] border-b border-ink hover:text-accent hover:border-accent transition-colors"
+                  className="font-mono text-[12px] uppercase tracking-wider pb-[3px] border-b border-rule hover:opacity-60 transition-opacity"
                 >
                   More about the path →
                 </a>
@@ -266,18 +262,18 @@ const hireItems = [
   {
     num: "01",
     title:
-      "A product needs to go from <em class='font-display italic text-accent'>messy 0 to shippable 1.</em>",
-    body: "No existing system, small team, ambiguous brief. Someone has to make the first hard calls and ship. Examples: OKX Lite, Melco's loyalty app.",
+      "A product needs to go from messy 0 to shippable 1.",
+    body: "No existing system, small team, ambiguous brief. Someone has to make the first hard calls and ship. Examples: OKGroup, Melco.",
   },
   {
     num: "02",
     title: "A design system is slowing the org down, not speeding it up.",
-    body: "When tokens, components, and governance have drifted out of sync with engineering, localisation, or compliance. At HSBC I noticed four markets were forking the component library for local compliance; I proposed splitting brand tokens from market tokens at the architecture level. Engineering adopted it, cutting localisation work by weeks per release.",
+    body: "When tokens, components, and governance have drifted out of sync with engineering, localisation, or compliance.",
   },
   {
     num: "03",
     title:
-      "A team needs a senior IC who can hold <em class='font-display italic text-accent'>craft and system</em> in the same hand.",
+      "A team needs a senior IC who can hold craft and system in the same hand.",
     body: "Most senior designers are strong in one; I've spent fifteen years moving between fine art, brand, UI, UX, and systems. That range is the thing I'm hired for.",
   },
   {
@@ -299,14 +295,14 @@ const expertise = [
   {
     tag: "01 — Systems",
     title: "Design Systems at scale",
-    body: "Token architecture, component governance, cross-team adoption. Built systems used by 40+ product teams across 12 markets simultaneously.",
+    body: "Token architecture, component governance, cross-team adoption. Built systems from 0→1 at OKGroup (95% adoption) and Melco (40% production cost saved).",
     meta: "Figma · Tokens Studio · Style Dictionary · Storybook",
   },
   {
     tag: "02 — Product",
     title: "Fintech & Crypto UX",
     body: "Complex financial flows, multi-jurisdictional compliance, trust design for high-stakes transactions, onboarding for novice users.",
-    meta: "OKX Lite · HSBC Wealth · OSL · Generali",
+    meta: "OKGroup · HSBC India · OSL · Generali",
   },
   {
     tag: "03 — 0→1",

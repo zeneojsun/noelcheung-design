@@ -41,7 +41,7 @@ export default async function CaseStudyPage({ params }: Props) {
           <div className="pt-12 pb-6 border-b border-rule">
             <Link
               href="/work"
-              className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted border-b border-transparent hover:border-accent hover:text-accent transition-colors"
+              className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted border-b border-transparent hover:opacity-60 transition-colors"
             >
               ← All work
             </Link>
@@ -62,7 +62,7 @@ export default async function CaseStudyPage({ params }: Props) {
                 />
               </div>
               <div className="md:col-span-7">
-                <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-accent mb-4">
+                <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-4">
                   {cs.meta}
                 </p>
                 <h1 className="display text-4xl md:text-6xl lg:text-7xl leading-[1.02] mb-8">
@@ -76,7 +76,7 @@ export default async function CaseStudyPage({ params }: Props) {
             </div>
 
             {/* Impact band */}
-            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 border-y border-ink py-8 gap-px">
+            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 border-y border-rule py-8 gap-px">
               {cs.impact.map((stat, i) => (
                 <div
                   key={i}
@@ -126,7 +126,7 @@ export default async function CaseStudyPage({ params }: Props) {
               Next case
             </p>
             <Link href={next.href} className="group block">
-              <h2 className="display text-3xl md:text-5xl leading-[1.1] group-hover:text-accent transition-colors">
+              <h2 className="display text-3xl md:text-5xl leading-[1.1] group-hover:opacity-70 transition-colors">
                 {next.title}
                 <em>{next.titleEm}</em>{" "}
                 <span className="inline-block group-hover:translate-x-2 transition-transform">

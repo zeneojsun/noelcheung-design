@@ -52,7 +52,7 @@ export default function WorkIndex() {
                 under NDA, please{" "}
                 <Link
                   href="/#contact"
-                  className="border-b border-ink hover:text-accent hover:border-accent transition-colors"
+                  className="border-b border-rule hover:opacity-60 transition-colors"
                 >
                   get in touch
                 </Link>
