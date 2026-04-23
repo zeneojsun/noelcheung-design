@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const displayFont = Inter({
+const displayFont = Fraunces({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["400", "500", "600", "700"],
+  axes: ["SOFT", "WONK", "opsz"],
   display: "swap",
 });
 
