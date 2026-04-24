@@ -1,11 +1,28 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WorkCard from "@/components/WorkCard";
+import EngagementsAccordion from "@/components/EngagementsAccordion";
 import { cv } from "@/lib/cv";
 import { caseStudies } from "@/lib/case-studies";
-import { siteConfig } from "@/lib/site-config";
+
+const clientLogos = [
+  { name: "HSBC", slug: "hsbc" },
+  { name: "OKX", slug: "okx" },
+  { name: "Melco", slug: "melco" },
+  { name: "Generali", slug: "generali" },
+  { name: "HKJC", slug: "hkjc" },
+  { name: "OSL", slug: "osl" },
+  { name: "Hong Huan", slug: "hong-huan" },
+  { name: "Garlican", slug: "garlican" },
+  { name: "Ralph Lauren", slug: "ralph-lauren" },
+  { name: "Macy's", slug: "macys" },
+  { name: "Fung Group", slug: "fung-group" },
+  { name: "Eslite 誠品", slug: "eslite" },
+];
 
 export default function Home() {
+  const homepageCaseStudies = caseStudies.filter((c) => c.slug !== "a2ui");
+
   return (
     <>
       <Header />
@@ -24,17 +41,18 @@ export default function Home() {
             </h1>
 
             <p className="text-lg md:text-xl leading-[1.6] max-w-[640px] mb-10 rise rise-3 text-muted">
-              Recent years focus on fintech and crypto. I step in to turn
-              underperforming products into scalable systems, so your team
-              can move faster and ship with confidence.
+              15+ years of product design across fintech, crypto, hospitality,
+              and enterprise. I step in to turn underperforming products into
+              scalable systems, so your team can move faster and ship with
+              confidence.
             </p>
 
             <div className="rise rise-4">
               <a
                 href="#contact"
-                className="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-medium bg-ink text-paper hover:bg-ink/85 transition-colors"
+                className="inline-flex items-center px-6 py-2.5 rounded-full text-sm font-medium tracking-[0.02em] bg-ink text-paper hover:bg-ink/85 transition-colors"
               >
-                Request availability →
+                Request availability
               </a>
             </div>
           </section>
@@ -43,13 +61,13 @@ export default function Home() {
           <section className="py-16 md:py-20 border-t border-rule">
             <div className="mb-12">
               <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
-                01 — Outcomes
+                Outcomes
               </p>
             </div>
 
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-10">
               {cv.highlights.slice(0, 3).map((h, i) => (
-                <div key={i} className="border-t border-rule pt-5">
+                <div key={i} className="pt-5">
                   <p className="display text-[64px] md:text-[80px] leading-[1] tracking-tight mb-3 tabular-nums font-semibold">
                     {h.metric}
                   </p>
@@ -59,17 +77,17 @@ export default function Home() {
             </div>
           </section>
 
-          {/* ─────────────────────────────────────────────── WORK */}
+          {/* ─────────────────────────────────────────────── CASE STUDIES */}
           <section id="work" className="py-16 md:py-20 border-t border-rule">
             <div className="mb-12">
               <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
-                02 — Case studies
+                Case studies
               </p>
             </div>
 
             <div className="grid md:grid-cols-1 gap-0">
-              {caseStudies.map((c) => (
-                <WorkCard key={c.slug} caseStudy={c} />
+              {homepageCaseStudies.map((c) => (
+                <WorkCard key={c.slug} caseStudy={c} bare />
               ))}
             </div>
 
@@ -83,62 +101,48 @@ export default function Home() {
             </div>
           </section>
 
-          {/* ─────────────────────────────────────────────── WHAT I DO */}
+          {/* ─────────────────────────────────────────────── SELECTED CLIENTS */}
           <section className="py-16 md:py-20 border-t border-rule">
             <div className="mb-12">
               <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
-                03 — Engagements
+                Selected clients
               </p>
             </div>
 
-            <ol className="space-y-10">
-              {[
-                {
-                  n: "01",
-                  title: "A project is off-track, or flagged as non-viable.",
-                  body: "Rescue work. Root cause analysis, reframing, and fast execution. At HSBC India, I turned a shelved project into a regional success with 7× submission increase and full GDR approval.",
-                },
-                {
-                  n: "02",
-                  title: "A product needs to go from 0 to shippable 1.",
-                  body: "Small teams, ambiguous brief, hard deadlines. Build the foundations that hold up through scale — like OKGroup's full design system, shipped and adopted at 95% within four months.",
-                },
-                {
-                  n: "03",
-                  title: "A design system is slowing the team down, not speeding them up.",
-                  body: "Token architecture, multi-brand governance, cross-team adoption. At Melco, I led a team of 7 to build the company's first design system — 1000+ components, 40% production cost saved.",
-                },
-                {
-                  n: "04",
-                  title: "AI is reshaping what design teams ship — and nobody has a clean answer.",
-                  body: "Agentic workflows, design-to-code, tokens-to-runtime. I've been building and writing on this since 2024 — including A2UI, ongoing research on design infrastructure for agentic systems.",
-                },
-              ].map((item) => (
-                <li
-                  key={item.n}
-                  className="grid md:grid-cols-[60px_1fr] gap-4 md:gap-8 border-t border-rule pt-6"
-                >
-                  <span className="font-mono text-[12px] uppercase tracking-[0.1em] text-muted">
-                    {item.n}
-                  </span>
-                  <div>
-                    <h3 className="text-lg md:text-xl font-medium leading-[1.35] mb-3 max-w-[50ch]">
-                      {item.title}
-                    </h3>
-                    <p className="text-base text-muted leading-[1.6] max-w-[58ch]">
-                      {item.body}
-                    </p>
-                  </div>
-                </li>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {clientLogos.map((c) => (
+                <div key={c.slug} className="flex items-center justify-center">
+                  <img
+                    src={`/clients/logo-${c.slug}.svg`}
+                    alt={c.name}
+                    width={120}
+                    height={60}
+                    className="w-full h-auto dark:invert opacity-60 hover:opacity-100 transition-opacity"
+                  />
+                </div>
               ))}
-            </ol>
+            </div>
+          </section>
+
+          {/* ─────────────────────────────────────────────── ENGAGEMENTS */}
+          <section className="py-16 md:py-20 border-t border-rule">
+            <div className="mb-12">
+              <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-4">
+                Engagements
+              </p>
+              <p className="display text-[28px] md:text-[36px] leading-[1.15] tracking-tight">
+                Why companies reach out.
+              </p>
+            </div>
+
+            <EngagementsAccordion />
           </section>
 
           {/* ─────────────────────────────────────────────── CAPABILITIES */}
           <section className="py-16 md:py-20 border-t border-rule">
             <div className="mb-12">
               <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
-                04 — Capabilities
+                Capabilities
               </p>
             </div>
 
@@ -162,25 +166,11 @@ export default function Home() {
             </div>
           </section>
 
-          {/* ─────────────────────────────────────────────── CLIENTS */}
-          <section className="py-16 md:py-20 border-t border-rule">
-            <div className="grid md:grid-cols-[180px_1fr] gap-8 md:gap-16">
-              <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
-                05 — Selected clients
-              </p>
-              <div>
-                <p className="text-sm text-muted leading-[1.7]">
-                  {siteConfig.clients.join(" · ")}
-                </p>
-              </div>
-            </div>
-          </section>
-
           {/* ─────────────────────────────────────────────── ABOUT */}
           <section id="about" className="py-16 md:py-20 border-t border-rule">
             <div className="mb-12">
               <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
-                06 — About
+                About
               </p>
             </div>
 

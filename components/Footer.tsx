@@ -8,7 +8,7 @@ export default function Footer() {
           <div>
             <span className="inline-flex items-center gap-2 font-mono text-[11px] font-medium uppercase tracking-[0.14em] px-3 py-2 border border-rule mb-8">
               <span className="avail-dot-pulse" />
-              Open · Q2 2026
+              Open to collaborate
             </span>
 
             <p className="font-sans font-medium text-[clamp(28px,4vw,40px)] leading-[1.15] tracking-tight mb-8">
@@ -26,18 +26,18 @@ export default function Footer() {
 
             <div className="flex flex-wrap gap-3 items-center">
               <a
-                href={`mailto:${siteConfig.email}`}
-                className="inline-flex items-center gap-2 px-5 py-3 bg-ink text-paper font-mono text-[12px] font-medium uppercase tracking-[0.12em] hover:opacity-80 transition-opacity"
-              >
-                {siteConfig.email} →
-              </a>
-              <a
                 href={siteConfig.cal}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-3 border border-rule font-mono text-[12px] font-medium uppercase tracking-[0.12em] hover:bg-hover transition-colors"
               >
                 Book a call ↗
+              </a>
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="inline-flex items-center gap-2 px-5 py-3 bg-ink text-paper font-mono text-[12px] font-medium uppercase tracking-[0.12em] hover:opacity-80 transition-opacity"
+              >
+                Email me →
               </a>
             </div>
           </div>
@@ -65,8 +65,7 @@ export default function Footer() {
 
         <div className="flex flex-col sm:flex-row justify-between gap-4 pt-8 border-t border-rule font-mono text-[11px] text-muted">
           <p>
-            © {new Date().getFullYear()} Human For Human 合同会社 ·{" "}
-            {siteConfig.location}
+            © {new Date().getFullYear()} noel cheung design
           </p>
           <p>Hand-built. Inter Tight + JetBrains Mono.</p>
         </div>

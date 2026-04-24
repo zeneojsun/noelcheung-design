@@ -16,7 +16,6 @@ export const siteConfig = {
 
   socials: [
     { label: "LinkedIn", href: "https://linkedin.com/in/noelcheung" },
-    { label: "Read.cv", href: "https://read.cv/noelcheung" },
     { label: "ADPList", href: "https://adplist.org/mentors/noel-cheung" },
     { label: "Download CV", href: "/cv.pdf" },
   ],

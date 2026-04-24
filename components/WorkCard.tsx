@@ -1,14 +1,14 @@
 import Link from "next/link";
 import type { CaseStudy } from "@/lib/case-studies";
 
-export default function WorkCard({ caseStudy }: { caseStudy: CaseStudy }) {
+export default function WorkCard({ caseStudy, bare = false }: { caseStudy: CaseStudy; bare?: boolean }) {
   const { num, meta, badge, title, titleEm, role, body, impact, href } =
     caseStudy;
 
   return (
     <Link
       href={href}
-      className="group block border-b border-rule first:border-t-0 py-10 px-0 md:-mx-12 md:px-12 -mx-6 px-6 transition-colors duration-300 hover:bg-hover"
+      className={`group block py-10 px-0 md:-mx-12 md:px-12 -mx-6 px-6 transition-colors duration-300 hover:bg-hover${bare ? "" : " border-b border-rule first:border-t-0"}`}
     >
       <div className="grid grid-cols-1 md:grid-cols-[32px_1.3fr_1.5fr_200px] gap-4 md:gap-10 items-baseline">
         <div className="font-mono text-[11px] font-medium tracking-wider text-muted">
