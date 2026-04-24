@@ -22,7 +22,10 @@ export default function Header() {
             <line x1="12" y1="7" x2="12" y2="17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
             <line x1="4" y1="17" x2="20" y2="17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
           </svg>
-          <span className="font-medium text-[15px] tracking-[-0.02em]">Noel Cheung</span>
+          <span className="font-medium text-[15px] tracking-[-0.02em]">
+            <span className="md:hidden">N.C</span>
+            <span className="hidden md:inline">Noel Cheung</span>
+          </span>
         </Link>
 
         <div className="flex items-center gap-6 md:gap-8">

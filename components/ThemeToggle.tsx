@@ -2,37 +2,24 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { Sun, Moon } from "lucide-react";
 
 export default function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // Avoid hydration mismatch
   useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
+  if (!mounted) return <div className="w-9 h-9" />;
 
-  const options = [
-    { value: "light", label: "light" },
-    { value: "dark",  label: "dark"  },
-    { value: "system", label: "auto" },
-  ] as const;
+  const isDark = resolvedTheme === "dark";
 
   return (
-    <div className="flex items-center gap-px font-mono text-[10px] uppercase tracking-[0.08em]">
-      {options.map(({ value, label }) => (
-        <button
-          key={value}
-          onClick={() => setTheme(value)}
-          className={`px-2 py-1 rounded-sm transition-colors ${
-            theme === value
-              ? "bg-[var(--text)] text-[var(--bg)]"
-              : "text-[var(--text-muted)] hover:bg-[var(--hover)]"
-          }`}
-          aria-pressed={theme === value}
-        >
-          {label}
-        </button>
-      ))}
-    </div>
+    <button
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      aria-label="Toggle theme"
+      className="w-9 h-9 flex items-center justify-center rounded-sm text-muted hover:text-ink hover:bg-ink/5 transition-colors"
+    >
+      {isDark ? <Sun size={16} /> : <Moon size={16} />}
+    </button>
   );
 }
