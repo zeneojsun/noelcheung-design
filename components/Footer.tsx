@@ -12,7 +12,7 @@ export default function Footer() {
             </span>
 
             <p className="font-sans font-medium text-[clamp(28px,4vw,40px)] leading-[1.15] tracking-tight mb-8">
-              Have a system that needs senior hands?
+              Have a project that needs a design diagnosis?
             </p>
 
             <p className="text-base text-muted leading-relaxed mb-10 max-w-[48ch]">

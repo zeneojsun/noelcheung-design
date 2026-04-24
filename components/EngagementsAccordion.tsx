@@ -18,11 +18,6 @@ const items = [
     title: "A design system is slowing the team down, not speeding them up.",
     body: "Token architecture, multi-brand governance, cross-team adoption. At Melco, I led a team of 7 to build the company's first design system — 1000+ components, 40% production cost saved.",
   },
-  {
-    n: "04",
-    title: "AI is reshaping what design teams ship — and nobody has a clean answer.",
-    body: "Agentic workflows, design-to-code, tokens-to-runtime. I've been building and writing on this since 2024 — including A2UI, ongoing research on design infrastructure for agentic systems.",
-  },
 ];
 
 export default function EngagementsAccordion() {

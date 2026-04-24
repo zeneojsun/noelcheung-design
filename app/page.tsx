@@ -28,7 +28,9 @@ export default function Home() {
       <Header />
 
       <main>
+        {/* ── top container ── */}
         <div className="max-w-site mx-auto px-6 md:px-12">
+
           {/* ─────────────────────────────────────────────── HERO */}
           <section className="pt-24 md:pt-32 pb-16 md:pb-20">
             <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-10 flex items-center gap-3 rise rise-1">
@@ -100,29 +102,39 @@ export default function Home() {
               </a>
             </div>
           </section>
+        </div>
 
-          {/* ─────────────────────────────────────────────── SELECTED CLIENTS */}
-          <section className="py-16 md:py-20 border-t border-rule">
-            <div className="mb-12">
-              <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
-                Selected clients
-              </p>
-            </div>
+        {/* ─────────────────────────────────────────────── SELECTED CLIENTS (full-width carousel) */}
+        <section className="py-16 md:py-20 border-t border-rule overflow-hidden">
+          <div className="max-w-site mx-auto px-6 md:px-12 mb-10">
+            <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
+              Selected clients
+            </p>
+          </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {clientLogos.map((c) => (
-                <div key={c.slug} className="flex items-center justify-center">
+          <div className="logo-carousel-wrapper overflow-hidden">
+            <div className="logo-carousel">
+              {[...clientLogos, ...clientLogos].map((c, i) => (
+                <div
+                  key={`${c.slug}-${i}`}
+                  className="flex-shrink-0 w-[120px] mx-6"
+                  aria-hidden={i >= clientLogos.length ? true : undefined}
+                >
                   <img
                     src={`/clients/logo-${c.slug}.svg`}
-                    alt={c.name}
+                    alt={i >= clientLogos.length ? "" : c.name}
                     width={120}
                     height={60}
-                    className="w-full h-auto dark:invert opacity-60 hover:opacity-100 transition-opacity"
+                    className="w-full h-auto dark:invert opacity-50 hover:opacity-100 transition-opacity duration-300"
                   />
                 </div>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
+
+        {/* ── bottom container ── */}
+        <div className="max-w-site mx-auto px-6 md:px-12">
 
           {/* ─────────────────────────────────────────────── ENGAGEMENTS */}
           <section className="py-16 md:py-20 border-t border-rule">
