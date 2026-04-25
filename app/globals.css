@@ -100,7 +100,12 @@ body {
 .logo-carousel {
   display: flex;
   width: max-content;
-  animation: marquee 38s linear infinite;
+  animation: marquee 40s linear infinite;
+}
+
+.logo-carousel-wrapper {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
 .logo-carousel-wrapper:hover .logo-carousel {

@@ -20,6 +20,12 @@ const clientLogos = [
   { name: "Eslite 誠品", slug: "eslite" },
 ];
 
+const outcomes = [
+  { metric: "$300M+", label: "value saved across client projects" },
+  { metric: "10+", label: "enterprise DX products shipped" },
+  { metric: "20+", label: "clients served, from MNCs to startups" },
+];
+
 export default function Home() {
   const homepageCaseStudies = caseStudies.filter((c) => c.slug !== "a2ui");
 
@@ -43,10 +49,9 @@ export default function Home() {
             </h1>
 
             <p className="text-lg md:text-xl leading-[1.6] max-w-[640px] mb-10 rise rise-3 text-muted">
-              15+ years of product design across fintech, crypto, hospitality,
-              and enterprise. I step in to turn underperforming products into
-              scalable systems, so your team can move faster and ship with
-              confidence.
+              14+ years in design, focused on fintech and crypto. I step into
+              complex products, fix what&apos;s broken, and turn them into scalable
+              systems — so teams can move faster and ship with confidence.
             </p>
 
             <div className="rise rise-4">
@@ -63,17 +68,17 @@ export default function Home() {
           <section className="py-16 md:py-20 border-t border-rule">
             <div className="mb-12">
               <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
-                Outcomes
+                Outcomes /
               </p>
             </div>
 
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-10">
-              {cv.highlights.slice(0, 3).map((h, i) => (
+              {outcomes.map((o, i) => (
                 <div key={i} className="pt-5">
                   <p className="display text-[64px] md:text-[80px] leading-[1] tracking-tight mb-3 tabular-nums font-semibold">
-                    {h.metric}
+                    {o.metric}
                   </p>
-                  <p className="text-sm text-muted leading-snug">{h.label}</p>
+                  <p className="text-sm text-muted leading-snug">{o.label}</p>
                 </div>
               ))}
             </div>
@@ -83,7 +88,7 @@ export default function Home() {
           <section id="work" className="py-16 md:py-20 border-t border-rule">
             <div className="mb-12">
               <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
-                Case studies
+                Case studies /
               </p>
             </div>
 
@@ -98,7 +103,7 @@ export default function Home() {
                 href="/work"
                 className="inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.08em] text-muted hover:text-ink transition-colors"
               >
-                Full index →
+                See all works →
               </a>
             </div>
           </section>
@@ -108,7 +113,7 @@ export default function Home() {
         <section className="py-16 md:py-20 border-t border-rule overflow-hidden">
           <div className="max-w-site mx-auto px-6 md:px-12 mb-10">
             <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
-              Selected clients
+              Selected clients /
             </p>
           </div>
 
@@ -117,15 +122,15 @@ export default function Home() {
               {[...clientLogos, ...clientLogos].map((c, i) => (
                 <div
                   key={`${c.slug}-${i}`}
-                  className="flex-shrink-0 w-[120px] mx-6"
+                  className="flex-shrink-0 flex items-center mx-12"
+                  style={{ height: "40px" }}
                   aria-hidden={i >= clientLogos.length ? true : undefined}
                 >
                   <img
                     src={`/clients/logo-${c.slug}.svg`}
                     alt={i >= clientLogos.length ? "" : c.name}
-                    width={120}
-                    height={60}
-                    className="w-full h-auto dark:invert opacity-50 hover:opacity-100 transition-opacity duration-300"
+                    height={40}
+                    className="h-10 w-auto brightness-0 opacity-40 dark:invert hover:opacity-80 transition-opacity duration-300"
                   />
                 </div>
               ))}
@@ -138,73 +143,23 @@ export default function Home() {
 
           {/* ─────────────────────────────────────────────── ENGAGEMENTS */}
           <section className="py-16 md:py-20 border-t border-rule">
-            <div className="mb-12">
-              <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-4">
-                Engagements
-              </p>
-              <p className="display text-[28px] md:text-[36px] leading-[1.15] tracking-tight">
-                Why companies reach out.
-              </p>
-            </div>
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-16">
+              {/* Left: label + headline */}
+              <div>
+                <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-8">
+                  Engagements /
+                </p>
+                <h2 className="display text-[28px] md:text-[36px] leading-[1.15] tracking-tight">
+                  I&apos;m usually brought in<br />
+                  <em>when:</em>
+                </h2>
+              </div>
 
-            <EngagementsAccordion />
-          </section>
-
-          {/* ─────────────────────────────────────────────── CAPABILITIES */}
-          <section className="py-16 md:py-20 border-t border-rule">
-            <div className="mb-12">
-              <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
-                Capabilities
-              </p>
-            </div>
-
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-10">
-              {cv.expertise.map((e, i) => {
-                const [title, rest] = e.split(" — ");
-                return (
-                  <div key={i} className="border-t border-rule pt-5">
-                    <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-3 tabular-nums">
-                      {String(i + 1).padStart(2, "0")}
-                    </p>
-                    <h3 className="text-base font-medium leading-[1.35] mb-2">
-                      {title}
-                    </h3>
-                    {rest ? (
-                      <p className="text-sm text-muted leading-[1.5]">{rest}</p>
-                    ) : null}
-                  </div>
-                );
-              })}
+              {/* Right: accordion */}
+              <EngagementsAccordion />
             </div>
           </section>
 
-          {/* ─────────────────────────────────────────────── ABOUT */}
-          <section id="about" className="py-16 md:py-20 border-t border-rule">
-            <div className="mb-12">
-              <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
-                About
-              </p>
-            </div>
-
-            <div className="max-w-[60ch] space-y-5 text-base leading-[1.7] text-muted">
-              {cv.profile
-                .split("\n\n")
-                .filter(Boolean)
-                .map((para, i) => (
-                  <p key={i} className={i === 0 ? "text-ink" : undefined}>
-                    {para.trim()}
-                  </p>
-                ))}
-              <p className="pt-4">
-                <a
-                  href="/cv"
-                  className="font-mono text-[12px] uppercase tracking-[0.08em] text-ink hover:opacity-60 transition-opacity"
-                >
-                  Read the full CV →
-                </a>
-              </p>
-            </div>
-          </section>
         </div>
       </main>
 

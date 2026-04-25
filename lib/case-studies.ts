@@ -4,7 +4,7 @@ export type CaseStudy = {
   meta: string;
   badge?: string;
   title: string;
-  titleEm: string;
+  titleEm?: string;
   role: string;
   body: string;
   impact: { value?: string; label: string }[];
@@ -14,27 +14,26 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     num: "01",
-    slug: "okgroup",
-    meta: "OKGroup · 2022–23 · Design Systems",
-    title: "OKGroup — design system ",
-    titleEm: "0→1 in 4 months.",
-    role: "Product Design Lead · Design Systems",
-    body: "Built OKGroup's design system from scratch — token architecture, multi-brand component libraries, interaction guidelines. Enabled MVP launch within 4 months. 95% adoption rate; 90%+ user satisfaction in post-launch survey.",
+    slug: "okx-lite",
+    meta: "01 · OKGROUP · 2022–23 · 4 MONTHS · DESIGN SYSTEM · MOBILE",
+    title: "OKX Lite Design System",
+    role: "Product Design Lead",
+    body: "Built OKX Lite's design system from scratch. Shipped MVP in 4 months with 95% adoption and 90%+ designer satisfaction.",
     impact: [
-      { value: "95%", label: "adoption rate" },
-      { value: "4mo", label: "zero to full system" },
-      { label: "90%+ post-launch satisfaction" },
+      { value: "40%", label: "cost saving" },
+      { value: "1000+", label: "components" },
+      { value: "95%", label: "adoption" },
+      { label: "Governance model" },
     ],
-    href: "/work/okgroup",
+    href: "/work/okx-lite",
   },
   {
     num: "02",
     slug: "hsbc-india",
-    meta: "HSBC · 2021–22 · Wealth · India",
-    title: "HSBC India Wealth — ",
-    titleEm: "turnaround from non-viable.",
+    meta: "02 · HSBC · 2021–22 · 3 MONTHS · ONBOARDING · WEB + MOBILE",
+    title: "HSBC India Onboarding",
     role: "Senior UX Consultant (via Zühlke)",
-    body: "Transformed a project flagged as non-viable into a regional success. Secured cross-regional GDR approval and launched a product previously without funding or endorsement from the company. 100% of manual operations eliminated.",
+    body: "Rescued a shelved India onboarding project. Secured cross-regional GDR approval, eliminated all manual operations, and 7× user submissions.",
     impact: [
       { value: "7×", label: "submission increase" },
       { value: "100%", label: "manual ops eliminated" },
@@ -45,11 +44,10 @@ export const caseStudies: CaseStudy[] = [
   {
     num: "03",
     slug: "melco",
-    meta: "Melco · 2019–21 · Design Systems",
-    title: "Melco — first design system, ",
-    titleEm: "1000+ components.",
-    role: "Senior UX Designer · Design Systems",
-    body: "Led a team of 7 to build Melco's first company-wide design system from scratch. Saved 40% in production cost, doubled team efficiency. The system became the model adopted by other product teams across the company.",
+    meta: "03 · MELCO · 2019–21 · 3 MONTHS · DESIGN SYSTEM · MOBILE",
+    title: "Melco Member App",
+    role: "Senior UX Designer",
+    body: "Designed Melco's first member loyalty app. Cut production cost by 40% and doubled team efficiency through a reusable system.",
     impact: [
       { value: "40%", label: "production cost saved" },
       { value: "2×", label: "team efficiency" },

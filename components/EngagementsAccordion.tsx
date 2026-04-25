@@ -18,6 +18,11 @@ const items = [
     title: "A design system is slowing the team down, not speeding them up.",
     body: "Token architecture, multi-brand governance, cross-team adoption. At Melco, I led a team of 7 to build the company's first design system — 1000+ components, 40% production cost saved.",
   },
+  {
+    n: "04",
+    title: "An existing product is expanding into new markets or brands.",
+    body: "Multi-brand token architecture, localisation systems, and design governance for teams shipping across regions. From single-product to scalable platform.",
+  },
 ];
 
 export default function EngagementsAccordion() {
