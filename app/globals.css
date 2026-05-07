@@ -68,6 +68,7 @@ body {
 .rise-2 { animation-delay: 0.20s; }
 .rise-3 { animation-delay: 0.34s; }
 .rise-4 { animation-delay: 0.48s; }
+.rise-5 { animation-delay: 0.62s; }
 
 /* ─── Availability pulse ─────────────────────────────── */
 @keyframes avail-pulse {

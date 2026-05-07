@@ -54,25 +54,7 @@ export default function Home() {
               systems — so teams can move faster and ship with confidence.
             </p>
 
-            <div className="rise rise-4">
-              <a
-                href="#contact"
-                className="inline-flex items-center px-6 py-2.5 rounded-full text-sm font-medium tracking-[0.02em] bg-ink text-paper hover:bg-ink/85 transition-colors"
-              >
-                Request availability
-              </a>
-            </div>
-          </section>
-
-          {/* ─────────────────────────────────────────────── OUTCOMES */}
-          <section className="py-16 md:py-20 border-t border-rule">
-            <div className="mb-12">
-              <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
-                Outcomes /
-              </p>
-            </div>
-
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-10">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-10 mb-10 rise rise-4">
               {outcomes.map((o, i) => (
                 <div key={i} className="pt-5">
                   <p className="display text-[64px] md:text-[80px] leading-[1] tracking-tight mb-3 tabular-nums font-semibold">
@@ -81,6 +63,15 @@ export default function Home() {
                   <p className="text-sm text-muted leading-snug">{o.label}</p>
                 </div>
               ))}
+            </div>
+
+            <div className="rise rise-5">
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-ink text-paper font-mono text-[12px] font-medium uppercase tracking-[0.12em] hover:opacity-80 transition-opacity"
+              >
+                Request availability
+              </a>
             </div>
           </section>
 

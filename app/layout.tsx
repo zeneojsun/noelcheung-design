@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter_Tight, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import { Providers } from "./providers";
 import "./globals.css";
 
-const sansFont = Inter_Tight({
+const sansFont = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
