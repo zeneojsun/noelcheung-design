@@ -1,23 +1,11 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const engagementItems = [
-  {
-    label: "Project is off-track",
-    desc: "I find root causes fast, reset with stakeholders, and re-anchor the work. Broken briefs, missed milestones, and scope drift — I've seen them all.",
-  },
-  {
-    label: "0→1 under pressure",
-    desc: "I move from ambiguous brief to shippable system quickly, without cutting corners. OKX Lite: full design system MVP in 4 months, 95% adoption across global teams.",
-  },
-  {
-    label: "Design system slowing teams",
-    desc: "I audit what's broken, rebuild what needs to hold, and get teams onto a shared source of truth. Melco: 40% production cost reduction.",
-  },
-  {
-    label: "Product needs to scale",
-    desc: "I build multi-brand token architecture and governance that holds as teams, markets, and brands grow.",
-  },
+const focusItems = [
+  { label: "Product systems",               desc: "Turning messy product surfaces into scalable, shippable systems." },
+  { label: "Design systems",                desc: "Tokens, governance, adoption, and design-to-code workflows." },
+  { label: "Fintech & crypto UX",           desc: "Trust, onboarding, compliance, and high-stakes transactions." },
+  { label: "Agentic design infrastructure", desc: "Exploring how AI changes design systems and handoff." },
 ];
 
 const workItems = [
@@ -76,40 +64,42 @@ export default function Home() {
       <main className="max-w-site mx-auto px-5 sm:px-6">
 
         {/* ── INTRO ── */}
-        <section className="pb-14 sm:pb-18" aria-label="Introduction">
+        <section className="pb-16 sm:pb-20" aria-label="Introduction">
           <p className="serif text-[22px] sm:text-[26px] leading-[1.4] tracking-[-0.005em] text-ink max-w-[54ch]">
-            Noel Cheung is a product designer based in Japan. I help fintech and crypto teams{" "}
-            <em>fix broken products and build the systems</em> that let them ship with confidence.
+            Noel Cheung is a product designer based in Japan. I design product systems for fintech,
+            crypto, and enterprise teams, with a focus on design systems, 0→1 product work, and UX
+            strategy.
           </p>
           <p className="text-[15px] leading-[1.7] text-ink-soft mt-8 max-w-[52ch]">
-            14 years across design systems, 0→1 products, and complex product turnarounds — at
-            OKX, HSBC, Melco, OSL, HKJC, and other teams.
+            I step into complex products, fix what&apos;s broken, and turn them into scalable systems
+            so teams can move faster and ship with confidence.
           </p>
           <p className="text-[15px] leading-[1.65] text-muted mt-5">
-            Open to remote Staff / Lead roles, consulting, and fractional engagements.
+            Previously across OKX, HSBC, Melco, OSL, HKJC, and other teams. Open to remote roles,
+            consulting, and fractional work.
           </p>
         </section>
 
-        {/* ── USUALLY BROUGHT IN WHEN ── */}
-        <section id="engagements" className="pt-12 pb-14 border-t border-rule">
+        {/* ── CURRENT FOCUS ── */}
+        <section id="focus" className="pt-12 pb-16 border-t border-rule">
           <h2 className="text-[13px] font-medium uppercase tracking-[0.14em] text-muted-2 mb-8">
-            Usually brought in when
+            Current focus
           </h2>
           <ul>
-            {engagementItems.map((item) => (
+            {focusItems.map((item) => (
               <li
                 key={item.label}
-                className="grid sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 py-4 border-b border-rule last:border-0"
+                className="grid sm:grid-cols-[200px_1fr] gap-1 sm:gap-8 py-4 border-b border-rule last:border-0"
               >
                 <span className="text-[15px] text-ink">{item.label}</span>
-                <span className="text-[15px] text-muted leading-[1.65]">{item.desc}</span>
+                <span className="text-[15px] text-muted leading-[1.6]">{item.desc}</span>
               </li>
             ))}
           </ul>
         </section>
 
         {/* ── SELECTED WORK ── */}
-        <section id="work" className="pt-12 pb-14 border-t border-rule">
+        <section id="work" className="pt-12 pb-16 border-t border-rule">
           <h2 className="text-[13px] font-medium uppercase tracking-[0.14em] text-muted-2 mb-8">
             Selected work
           </h2>
@@ -117,7 +107,7 @@ export default function Home() {
             {workItems.map((item, i) => (
               <li
                 key={item.title}
-                className={`py-6 border-b border-rule last:border-0 ${i === 0 ? "pt-2" : ""}`}
+                className={`py-7 border-b border-rule last:border-0 ${i === 0 ? "pt-2" : ""}`}
               >
                 <h3 className="text-[16px] tracking-[-0.01em] font-medium text-ink">{item.title}</h3>
                 <p className="mt-2 text-[15px] text-ink-soft leading-[1.65]">{item.desc}</p>
@@ -129,7 +119,7 @@ export default function Home() {
         </section>
 
         {/* ── WRITING & NOTES ── */}
-        <section id="writing" className="pt-12 pb-14 border-t border-rule">
+        <section id="writing" className="pt-12 pb-16 border-t border-rule">
           <h2 className="text-[13px] font-medium uppercase tracking-[0.14em] text-muted-2 mb-8">
             Writing &amp; notes
           </h2>
@@ -151,7 +141,7 @@ export default function Home() {
         </section>
 
         {/* ── ABOUT ── */}
-        <section id="about" className="pt-12 pb-14 border-t border-rule">
+        <section id="about" className="pt-12 pb-16 border-t border-rule">
           <h2 className="text-[13px] font-medium uppercase tracking-[0.14em] text-muted-2 mb-8">
             About
           </h2>
@@ -163,29 +153,20 @@ export default function Home() {
               system-level adoption.
             </p>
             <p className="text-[15px] leading-[1.7] text-ink-soft">
-              Today I work independently through Human For Human 合同会社, helping teams design
-              clearer products, stronger systems, and better ways of working.
+              Today I work independently from Fukuoka through Human For Human 合同会社, helping teams
+              design clearer products, stronger systems, and better ways of working.
             </p>
           </div>
         </section>
 
         {/* ── CONTACT ── */}
-        <section id="contact" className="pt-12 pb-14 border-t border-rule">
+        <section id="contact" className="pt-12 pb-16 border-t border-rule">
           <h2 className="text-[13px] font-medium uppercase tracking-[0.14em] text-muted-2 mb-8">
             Contact
           </h2>
-          <p className="text-[17px] leading-[1.55] text-ink mb-7 max-w-[52ch]">
-            Have a product that needs rescue, a design system that needs building, or a 0→1
-            project that needs senior hands?
+          <p className="text-[15px] leading-[1.7] text-ink-soft mb-8 max-w-[52ch]">
+            Open to remote roles, consulting, and fractional work.
           </p>
-          <div className="mb-10">
-            <a
-              href="mailto:hello@noelcheung.design"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-ink text-paper text-[13px] tracking-[0.04em] hover:opacity-75 transition-opacity"
-            >
-              Request availability →
-            </a>
-          </div>
           <ul>
             {contactItems.map((item) => (
               <li key={item.label} className="border-b border-rule last:border-0">
