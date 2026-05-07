@@ -65,14 +65,18 @@ export default function Home() {
 
         {/* ── INTRO ── */}
         <section className="pb-16 sm:pb-20" aria-label="Introduction">
-          <p className="serif text-[22px] sm:text-[26px] leading-[1.4] tracking-[-0.005em] text-ink">
-            Noel Cheung is a product designer based in Fukuoka, Japan. I design product systems for
-            fintech, crypto, and enterprise teams, with a focus on design systems, 0→1 product work,
-            and AI-ready infrastructure.
+          <p className="serif text-[22px] sm:text-[26px] leading-[1.4] tracking-[-0.005em] text-ink max-w-[54ch]">
+            Noel Cheung is a product designer based in Japan. I design product systems for fintech,
+            crypto, and enterprise teams, with a focus on design systems, 0→1 product work, and UX
+            strategy.
           </p>
-          <p className="text-[15px] leading-[1.65] text-muted mt-6">
-            Previously across OKX, HSBC, Melco, OSL, HKJC, and other teams. Open to Staff / Lead
-            roles, consulting, and fractional work.
+          <p className="text-[15px] leading-[1.7] text-ink-soft mt-8 max-w-[52ch]">
+            I step into complex products, fix what&apos;s broken, and turn them into scalable systems
+            so teams can move faster and ship with confidence.
+          </p>
+          <p className="text-[15px] leading-[1.65] text-muted mt-5">
+            Previously across OKX, HSBC, Melco, OSL, HKJC, and other teams. Open to remote roles,
+            consulting, and fractional work.
           </p>
         </section>
 
