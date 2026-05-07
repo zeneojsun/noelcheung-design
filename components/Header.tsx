@@ -2,56 +2,41 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { siteConfig } from "@/lib/site-config";
 import ThemeToggle from "./ThemeToggle";
+
+const navItems = [
+  { label: "Work",    href: "#work" },
+  { label: "Writing", href: "#writing" },
+  { label: "About",   href: "#about" },
+  { label: "Contact", href: "#contact" },
+];
 
 export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 bg-paper/90 backdrop-blur-md backdrop-saturate-150 border-b border-rule">
-      <div className="max-w-site mx-auto px-6 md:px-12 flex items-center justify-between py-4 gap-6">
+    <header>
+      <div className="max-w-site mx-auto px-5 sm:px-6 flex items-center justify-between py-8 sm:py-12">
         <Link
           href="/"
-          className="hover:opacity-60 transition-opacity"
+          className="text-[15px] tracking-[-0.01em] text-ink hover:text-muted transition-colors duration-150"
         >
-          <span className="font-medium text-[15px] tracking-[-0.02em]">
-            <span className="md:hidden">N.C</span>
-            <span className="hidden md:inline">Noel Cheung</span>
-          </span>
+          Noel Cheung
         </Link>
 
-        <div className="flex items-center gap-6 md:gap-8">
-          <nav className="flex items-center gap-6 md:gap-8 font-mono text-[12px] uppercase tracking-[0.08em]">
-            {siteConfig.nav.map((item) => {
-              const isPageRoute = item.href.startsWith("/") && !item.href.startsWith("/#");
-              const isActive = isPageRoute && pathname === item.href;
+        <nav className="flex items-center gap-5 sm:gap-7" aria-label="Primary">
+          {navItems.map((item) => {
+            const isPageRoute = item.href.startsWith("/") && !item.href.startsWith("/#");
+            const isActive = isPageRoute && pathname === item.href;
+            const cls = `text-[14px] transition-colors duration-150 ${isActive ? "text-ink" : "text-muted hover:text-ink"}`;
 
-              if (isPageRoute) {
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={`${isActive ? "text-ink" : "text-muted"} hover:text-ink transition-colors`}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              }
-
-              return (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="text-muted hover:text-ink transition-colors"
-                >
-                  {item.label}
-                </a>
-              );
-            })}
-          </nav>
+            if (isPageRoute) {
+              return <Link key={item.href} href={item.href} className={cls}>{item.label}</Link>;
+            }
+            return <a key={item.href} href={item.href} className={cls}>{item.label}</a>;
+          })}
           <ThemeToggle />
-        </div>
+        </nav>
       </div>
     </header>
   );

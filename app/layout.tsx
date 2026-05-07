@@ -1,32 +1,38 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Newsreader } from "next/font/google";
 import { Providers } from "./providers";
 import "./globals.css";
 
-const sansFont = Inter({
+const sansFont = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
 });
 
-const monoFont = JetBrains_Mono({
+const monoFont = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+  display: "swap",
+});
+
+const serifFont = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  style: ["normal", "italic"],
   weight: ["400", "500"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Noel Cheung — Product Designer · Fintech & Design Systems",
+  title: "Noel Cheung — Product Designer",
   description:
-    "Product designer with 15+ years across fintech, crypto, and complex digital products. Specialising in design systems, 0→1 execution, and turnarounds.",
+    "Product designer based in Fukuoka, Japan. Product systems, design systems, fintech & crypto UX, and AI-ready design infrastructure.",
   authors: [{ name: "Noel Cheung" }],
   keywords: [
     "Product Designer",
     "Design Systems",
     "Fintech",
     "Crypto",
-    "Agentic AI",
     "Noel Cheung",
   ],
   openGraph: {
@@ -35,7 +41,7 @@ export const metadata: Metadata = {
     url: "https://noelcheung.design",
     title: "Noel Cheung — Product Designer",
     description:
-      "15+ years across fintech, crypto, and design systems. Currently independent from Fukuoka.",
+      "Product systems, design systems, fintech & crypto UX, and AI-ready design infrastructure. Based in Fukuoka, Japan.",
     siteName: "Noel Cheung",
   },
 };
@@ -49,7 +55,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${sansFont.variable} ${monoFont.variable}`}
+      className={`${sansFont.variable} ${monoFont.variable} ${serifFont.variable}`}
     >
       <body>
         <Providers>

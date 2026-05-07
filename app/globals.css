@@ -4,26 +4,26 @@
 
 /* ─── Light (default) ─────────────────────────────────── */
 :root {
-  --bg:         #fafafa;
-  --surface:    #ffffff;
-  --text:       #111111;
-  --text-muted: #6b6b6b;
-  --hairline:   #e8e8e8;
-  --hover:      #f0f0f0;
-
-  --font-sans:  "Inter Tight", -apple-system, sans-serif;
-  --font-mono:  "JetBrains Mono", ui-monospace, monospace;
-  --font-display: var(--font-sans);
+  --bg:         #faf9f6;
+  --surface:    #f4f2ec;
+  --text:       #161513;
+  --ink-soft:   #2a2825;
+  --text-muted: #6b6862;
+  --text-muted-2: #8c8880;
+  --hairline:   #e6e2d8;
+  --hover:      #edeae2;
 }
 
 /* ─── Dark ────────────────────────────────────────────── */
 .dark {
-  --bg:         #0a0a0a;
-  --surface:    #141414;
-  --text:       #ededed;
-  --text-muted: #8a8a8a;
-  --hairline:   #1f1f1f;
-  --hover:      #1a1a1a;
+  --bg:         #0e0e0d;
+  --surface:    #161614;
+  --text:       #ecebe6;
+  --ink-soft:   #d6d4cd;
+  --text-muted: #8a8880;
+  --text-muted-2: #6e6c66;
+  --hairline:   #24231f;
+  --hover:      #1e1d1a;
 }
 
 * { box-sizing: border-box; }
@@ -40,35 +40,19 @@ body {
   color: var(--text);
   font-family: var(--font-sans);
   font-size: 16px;
-  line-height: 1.55;
-  letter-spacing: -0.006em;
+  line-height: 1.6;
 }
 
-/* ─── Display utility — Inter Tight, weight 500 ────────── */
-/* Used for headings/cards throughout the existing markup.  */
-/* Phase 5 will replace with typed classes.                */
-.display {
-  font-family: var(--font-sans);
-  font-weight: 500;
-  letter-spacing: -0.025em;
+::selection {
+  background: var(--text);
+  color: var(--bg);
 }
 
-.display em {
-  font-style: italic;
+/* ─── Serif utility (Newsreader) ─────────────────────── */
+.serif {
+  font-family: var(--font-serif);
+  font-feature-settings: "liga", "dlig";
 }
-
-/* ─── Animations ─────────────────────────────────────── */
-@keyframes rise {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.rise   { animation: rise 0.85s cubic-bezier(0.19, 1, 0.22, 1) both; }
-.rise-1 { animation-delay: 0.08s; }
-.rise-2 { animation-delay: 0.20s; }
-.rise-3 { animation-delay: 0.34s; }
-.rise-4 { animation-delay: 0.48s; }
-.rise-5 { animation-delay: 0.62s; }
 
 /* ─── Availability pulse ─────────────────────────────── */
 @keyframes avail-pulse {
@@ -84,41 +68,6 @@ body {
   background: #2e7a45;
   box-shadow: 0 0 0 3px rgba(46,122,69,0.2);
   animation: avail-pulse 2.4s ease-in-out infinite;
-}
-
-/* ─── Marquee ────────────────────────────────────────── */
-@keyframes marquee {
-  to { transform: translateX(-50%); }
-}
-
-.marquee-inner {
-  display: flex;
-  animation: marquee 42s linear infinite;
-  width: max-content;
-}
-
-/* ─── Logo carousel ─────────────────────────────────── */
-.logo-carousel {
-  display: flex;
-  width: max-content;
-  animation: marquee 40s linear infinite;
-}
-
-.logo-carousel-wrapper {
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-}
-
-.logo-carousel-wrapper:hover .logo-carousel {
-  animation-play-state: paused;
-}
-
-/* ─── Misc utilities ─────────────────────────────────── */
-.tabular { font-variant-numeric: tabular-nums; }
-
-::selection {
-  background: var(--text);
-  color: var(--bg);
 }
 
 :focus-visible {
