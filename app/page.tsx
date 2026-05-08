@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WorkCard from "@/components/WorkCard";
 import EngagementsAccordion from "@/components/EngagementsAccordion";
+import Reveal from "@/components/Reveal";
 import { cv } from "@/lib/cv";
 import { caseStudies } from "@/lib/case-studies";
 
@@ -77,36 +78,44 @@ export default function Home() {
 
           {/* ─────────────────────────────────────────────── CASE STUDIES */}
           <section id="work" className="py-16 md:py-20 border-t border-rule">
-            <div className="mb-12">
-              <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
-                Case studies /
-              </p>
-            </div>
+            <Reveal>
+              <div className="mb-12">
+                <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
+                  Case studies /
+                </p>
+              </div>
+            </Reveal>
 
             <div className="grid md:grid-cols-1 gap-0">
-              {homepageCaseStudies.map((c) => (
-                <WorkCard key={c.slug} caseStudy={c} bare />
+              {homepageCaseStudies.map((c, i) => (
+                <Reveal key={c.slug} delay={i * 90}>
+                  <WorkCard caseStudy={c} bare />
+                </Reveal>
               ))}
             </div>
 
-            <div className="mt-10">
-              <a
-                href="/work"
-                className="inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.08em] text-muted hover:text-ink transition-colors"
-              >
-                See all works →
-              </a>
-            </div>
+            <Reveal delay={homepageCaseStudies.length * 90}>
+              <div className="mt-10">
+                <a
+                  href="/work"
+                  className="inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.08em] text-muted hover:text-ink transition-colors"
+                >
+                  See all works →
+                </a>
+              </div>
+            </Reveal>
           </section>
         </div>
 
         {/* ─────────────────────────────────────────────── SELECTED CLIENTS (full-width carousel) */}
         <section className="py-16 md:py-20 border-t border-rule overflow-hidden">
-          <div className="max-w-site mx-auto px-6 md:px-12 mb-10">
-            <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
-              Selected clients /
-            </p>
-          </div>
+          <Reveal>
+            <div className="max-w-site mx-auto px-6 md:px-12 mb-10">
+              <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
+                Selected clients /
+              </p>
+            </div>
+          </Reveal>
 
           <div className="logo-carousel-wrapper overflow-hidden">
             <div className="logo-carousel">
@@ -136,18 +145,22 @@ export default function Home() {
           <section className="py-16 md:py-20 border-t border-rule">
             <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-16">
               {/* Left: label + headline */}
-              <div>
-                <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-8">
-                  Engagements /
-                </p>
-                <h2 className="display text-[28px] md:text-[36px] leading-[1.15] tracking-tight">
-                  I&apos;m usually brought in<br />
-                  <em>when:</em>
-                </h2>
-              </div>
+              <Reveal>
+                <div>
+                  <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-8">
+                    Engagements /
+                  </p>
+                  <h2 className="display text-[28px] md:text-[36px] leading-[1.15] tracking-tight">
+                    I&apos;m usually brought in<br />
+                    <em>when:</em>
+                  </h2>
+                </div>
+              </Reveal>
 
               {/* Right: accordion */}
-              <EngagementsAccordion />
+              <Reveal delay={100}>
+                <EngagementsAccordion />
+              </Reveal>
             </div>
           </section>
 
