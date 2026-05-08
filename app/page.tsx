@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import WorkCard from "@/components/WorkCard";
 import EngagementsAccordion from "@/components/EngagementsAccordion";
 import ServicesAccordion from "@/components/ServicesAccordion";
+import NewsletterForm from "@/components/NewsletterForm";
 import Reveal from "@/components/Reveal";
 import StatsSection from "@/components/StatsSection";
 import { cv } from "@/lib/cv";
@@ -150,6 +151,19 @@ export default function Home() {
                 <ServicesAccordion />
               </Reveal>
             </div>
+          </section>
+
+          {/* ─────────────────────────────────────────────── NEWSLETTER */}
+          <section className="pt-16 pb-[120px] border-t border-rule">
+            <Reveal>
+              <h2 className="display text-[22px] font-semibold leading-[1.2] mb-3">
+                Newsletter
+              </h2>
+              <p className="text-[15px] text-muted leading-relaxed mb-8 max-w-[480px]">
+                Exclusive, newsletter-only content once a month. No spam, no nonsense.
+              </p>
+              <NewsletterForm />
+            </Reveal>
           </section>
 
         </div>
