@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { DM_Sans, JetBrains_Mono } from "next/font/google";
 import { Providers } from "./providers";
 import "./globals.css";
 
-const sansFont = Inter({
+const sansFont = DM_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",

@@ -11,7 +11,7 @@
   --hairline:   #e8e8e8;
   --hover:      #f0f0f0;
 
-  --font-sans:  "Inter Tight", -apple-system, sans-serif;
+  --font-sans:  "DM Sans", -apple-system, sans-serif;
   --font-mono:  "JetBrains Mono", ui-monospace, monospace;
   --font-display: var(--font-sans);
 }
