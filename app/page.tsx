@@ -36,14 +36,14 @@ export default function Home() {
 
           {/* ─────────────────────────────────────────────── HERO */}
           <section className="pt-[88px] pb-16">
-            <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-4 flex items-center gap-3 rise rise-1">
+            <h1 className="display text-[48px] md:text-[80px] font-[560] leading-[1.05] tracking-[-0.03em] mb-3 max-w-[18ch] rise rise-1">
+              Noel helps teams fix and launch products that actually work
+            </h1>
+
+            <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-10 flex items-center gap-3 rise rise-2">
               <span className="avail-dot-pulse" />
               {cv.tagline}
             </p>
-
-            <h1 className="display text-[48px] md:text-[80px] font-bold leading-[1.05] tracking-[-0.03em] mb-6 max-w-[18ch] rise rise-2">
-              Noel helps teams fix and launch products that actually work
-            </h1>
 
             <p className="text-lg md:text-xl leading-[1.6] max-w-[640px] mb-12 rise rise-3 text-muted">
               14+ years in design, focused on fintech and crypto. I step into
@@ -90,7 +90,7 @@ export default function Home() {
           <Reveal>
             <div className="max-w-site mx-auto px-5 md:px-8 lg:px-12 mb-8">
               <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
-                Selected clients /
+                Clients I&apos;ve served /
               </p>
             </div>
           </Reveal>
