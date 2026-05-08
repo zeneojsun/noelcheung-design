@@ -35,13 +35,12 @@ export default function Home() {
         <div className="max-w-site mx-auto px-5 md:px-8 lg:px-12">
 
           {/* ─────────────────────────────────────────────── HERO */}
-          <section className="pt-[88px] pb-16">
-            <h1 className="display text-[48px] md:text-[80px] font-[560] leading-[1.05] tracking-[-0.03em] mb-3 max-w-[18ch] rise rise-1">
+          <section className="pt-[70px] pb-16">
+            <h1 className="display text-[48px] md:text-[80px] font-semibold leading-[1.05] tracking-[-0.03em] mb-3 max-w-[18ch] rise rise-1">
               Noel helps teams fix and launch products that actually work
             </h1>
 
             <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-10 flex items-center gap-3 rise rise-2">
-              <span className="avail-dot-pulse" />
               {cv.tagline}
             </p>
 

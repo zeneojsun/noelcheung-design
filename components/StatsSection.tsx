@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useEffect, useState } from "react";
+import { motion, useInView, animate } from "framer-motion";
 
 const outcomes = [
   { prefix: "$", value: 300, suffix: "M+", label: "USD value saved across client projects" },
@@ -8,57 +9,30 @@ const outcomes = [
   { prefix: "",  value: 20,  suffix: "+",  label: "Clients served, from MNCs to startups" },
 ];
 
-const easeOut = (t: number) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
-
 function StatBlock({
-  prefix, value, suffix, label,
-  delay, started, reduced,
+  prefix, value, suffix, label, started, delay,
 }: {
   prefix: string; value: number; suffix: string; label: string;
-  delay: number; started: boolean; reduced: boolean;
+  started: boolean; delay: number;
 }) {
-  const [displayed, setDisplayed] = useState(reduced ? value : 0);
-  const [visible, setVisible]     = useState(reduced);
+  const [displayed, setDisplayed] = useState(0);
 
   useEffect(() => {
     if (!started) return;
-    if (reduced) {
-      setVisible(true);
-      setDisplayed(value);
-      return;
-    }
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) { setDisplayed(value); return; }
 
-    setVisible(true);
-
-    let raf: number;
-    const timer = setTimeout(() => {
-      let startTime: number | null = null;
-      const step = (now: number) => {
-        if (!startTime) startTime = now;
-        const progress = Math.min((now - startTime) / 750, 1);
-        setDisplayed(Math.round(easeOut(progress) * value));
-        if (progress < 1) raf = requestAnimationFrame(step);
-      };
-      raf = requestAnimationFrame(step);
-    }, delay);
-
-    return () => {
-      clearTimeout(timer);
-      cancelAnimationFrame(raf);
-    };
-  }, [started, delay, value, reduced]);
+    const controls = animate(0, value, {
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1],
+      delay: delay / 1000,
+      onUpdate: (v) => setDisplayed(Math.round(v)),
+    });
+    return controls.stop;
+  }, [started, value, delay]);
 
   return (
-    <div
-      className="pt-5"
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "none" : "translateY(24px)",
-        transition: reduced
-          ? "none"
-          : `opacity 750ms cubic-bezier(0.16,1,0.3,1) ${delay}ms, transform 750ms cubic-bezier(0.16,1,0.3,1) ${delay}ms`,
-      }}
-    >
+    <div className="pt-5">
       <p className="text-sm text-muted leading-snug mb-3">{label}</p>
       <p className="display text-[64px] md:text-[80px] leading-[1] tracking-tight tabular-nums font-semibold">
         {prefix}{displayed}{suffix}
@@ -68,68 +42,36 @@ function StatBlock({
 }
 
 export default function StatsSection() {
-  const ref          = useRef<HTMLDivElement>(null);
-  const [started,    setStarted]    = useState(false);
-  const [reduced,    setReduced]    = useState(false);
-  const [ctaVisible, setCtaVisible] = useState(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mq.matches) {
-      setReduced(true);
-      setStarted(true);
-      setCtaVisible(true);
-      return;
-    }
-
-    const el = ref.current;
-    if (!el) return;
-
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setStarted(true);
-          setTimeout(() => setCtaVisible(true), 1150);
-          io.unobserve(el);
-        }
-      },
-      { threshold: 0.15 }
-    );
-
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
+  const ref    = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.15 });
 
   return (
     <div ref={ref}>
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-12 mb-12">
         {outcomes.map((o, i) => (
-          <StatBlock
+          <motion.div
             key={i}
-            {...o}
-            delay={i * 150}
-            started={started}
-            reduced={reduced}
-          />
+            initial={{ opacity: 0, y: 24 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: i * 0.15 }}
+          >
+            <StatBlock {...o} started={inView} delay={i * 150} />
+          </motion.div>
         ))}
       </div>
 
-      <div
-        style={{
-          opacity: ctaVisible ? 1 : 0,
-          transform: ctaVisible ? "none" : "translateY(16px) scale(0.96)",
-          transition: reduced
-            ? "none"
-            : "opacity 600ms cubic-bezier(0.16,1,0.3,1), transform 600ms cubic-bezier(0.16,1,0.3,1)",
-        }}
+      <motion.div
+        initial={{ opacity: 0, y: 16, scale: 0.96 }}
+        animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 1.2 }}
       >
         <a
           href="#contact"
-          className="inline-flex items-center h-12 rounded-full px-8 bg-ink text-paper font-mono text-base font-medium hover:opacity-90 hover:-translate-y-px transition-all duration-200"
+          className="inline-flex items-center h-14 rounded-full px-8 bg-ink text-paper font-mono text-base font-semibold hover:opacity-90 hover:-translate-y-px transition-all duration-200"
         >
           Get in touch
         </a>
-      </div>
+      </motion.div>
     </div>
   );
 }
