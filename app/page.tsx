@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import WorkCard from "@/components/WorkCard";
 import EngagementsAccordion from "@/components/EngagementsAccordion";
 import Reveal from "@/components/Reveal";
+import StatsSection from "@/components/StatsSection";
 import { cv } from "@/lib/cv";
 import { caseStudies } from "@/lib/case-studies";
 
@@ -21,11 +22,6 @@ const clientLogos = [
   { name: "Eslite 誠品", slug: "eslite" },
 ];
 
-const outcomes = [
-  { metric: "$300M+", label: "value saved across client projects" },
-  { metric: "10+", label: "enterprise DX products shipped" },
-  { metric: "20+", label: "clients served, from MNCs to startups" },
-];
 
 export default function Home() {
   const homepageCaseStudies = caseStudies.filter((c) => c.slug !== "a2ui");
@@ -55,31 +51,7 @@ export default function Home() {
               systems — so teams can move faster and ship with confidence.
             </p>
 
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-12 mb-12 rise rise-4">
-              {outcomes.map((o, i) => (
-                <div key={i} className="pt-5">
-                  <p className="display text-[64px] md:text-[80px] leading-[1] tracking-tight mb-3 tabular-nums font-semibold">
-                    {o.metric}
-                  </p>
-                  <p className="text-sm text-muted leading-snug">{o.label}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="rise rise-5 flex flex-wrap items-center gap-4">
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 h-12 rounded-full px-8 bg-ink text-paper font-mono text-base font-medium hover:opacity-90 hover:-translate-y-px transition-all duration-200"
-              >
-                Request availability
-              </a>
-              <a
-                href="#work"
-                className="inline-flex items-center gap-2 h-12 rounded-full px-8 border border-rule font-mono text-base font-medium hover:border-ink hover:-translate-y-px transition-all duration-200"
-              >
-                See my work
-              </a>
-            </div>
+            <StatsSection />
           </section>
 
           {/* ─────────────────────────────────────────────── CASE STUDIES */}
