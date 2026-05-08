@@ -11,8 +11,8 @@
   --hairline:   #e8e8e8;
   --hover:      #f0f0f0;
 
-  --font-sans:  "DM Sans", -apple-system, sans-serif;
-  --font-mono:  "JetBrains Mono", ui-monospace, monospace;
+  --font-sans:  "Satoshi", -apple-system, sans-serif;
+  --font-mono:  "Satoshi", -apple-system, sans-serif;
   --font-display: var(--font-sans);
 }
 

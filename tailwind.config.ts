@@ -25,7 +25,7 @@ export default {
         // No accent — chromatic accent removed per R2 brief
       },
       maxWidth: {
-        site: "1100px",
+        site: "1200px",
         hero: "1200px",
       },
       borderRadius: {

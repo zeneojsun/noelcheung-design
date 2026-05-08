@@ -9,8 +9,8 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 bg-paper/90 backdrop-blur-md backdrop-saturate-150 border-b border-rule">
-      <div className="max-w-site mx-auto px-6 md:px-12 flex items-center justify-between py-4 gap-6">
+    <header className="sticky top-0 z-50 h-[72px] flex items-center bg-paper/90 backdrop-blur-md backdrop-saturate-150 border-b border-rule">
+      <div className="max-w-site mx-auto w-full px-5 md:px-8 lg:px-12 flex items-center justify-between gap-6">
         <Link
           href="/"
           className="hover:opacity-60 transition-opacity"

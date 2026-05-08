@@ -36,26 +36,26 @@ export default function Home() {
 
       <main>
         {/* ── top container ── */}
-        <div className="max-w-site mx-auto px-6 md:px-12">
+        <div className="max-w-site mx-auto px-5 md:px-8 lg:px-12">
 
           {/* ─────────────────────────────────────────────── HERO */}
-          <section className="pt-24 md:pt-32 pb-16 md:pb-20">
-            <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-10 flex items-center gap-3 rise rise-1">
+          <section className="pt-[88px] pb-16">
+            <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-4 flex items-center gap-3 rise rise-1">
               <span className="avail-dot-pulse" />
               {cv.tagline}
             </p>
 
-            <h1 className="display text-[48px] md:text-[80px] font-bold leading-[1.05] tracking-[-0.03em] mb-10 max-w-[18ch] rise rise-2">
+            <h1 className="display text-[48px] md:text-[80px] font-bold leading-[1.05] tracking-[-0.03em] mb-6 max-w-[18ch] rise rise-2">
               Noel helps teams fix and launch products that actually work.
             </h1>
 
-            <p className="text-lg md:text-xl leading-[1.6] max-w-[640px] mb-10 rise rise-3 text-muted">
+            <p className="text-lg md:text-xl leading-[1.6] max-w-[640px] mb-12 rise rise-3 text-muted">
               14+ years in design, focused on fintech and crypto. I step into
               complex products, fix what&apos;s broken, and turn them into scalable
               systems — so teams can move faster and ship with confidence.
             </p>
 
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-10 mb-10 rise rise-4">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-12 mb-12 rise rise-4">
               {outcomes.map((o, i) => (
                 <div key={i} className="pt-5">
                   <p className="display text-[64px] md:text-[80px] leading-[1] tracking-tight mb-3 tabular-nums font-semibold">
@@ -66,16 +66,16 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="rise rise-5 flex flex-wrap items-center gap-3">
+            <div className="rise rise-5 flex flex-wrap items-center gap-4">
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 bg-ink text-paper font-mono text-[12px] font-medium uppercase tracking-[0.12em] hover:opacity-90 hover:-translate-y-px transition-all duration-200"
+                className="inline-flex items-center gap-2 h-12 rounded-full px-6 bg-ink text-paper font-mono text-[12px] font-medium hover:opacity-90 hover:-translate-y-px transition-all duration-200"
               >
                 Request availability
               </a>
               <a
                 href="#work"
-                className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 border border-rule font-mono text-[12px] font-medium uppercase tracking-[0.12em] hover:border-ink hover:-translate-y-px transition-all duration-200"
+                className="inline-flex items-center gap-2 h-12 rounded-full px-6 border border-rule font-mono text-[12px] font-medium hover:border-ink hover:-translate-y-px transition-all duration-200"
               >
                 See my work
               </a>
@@ -83,16 +83,16 @@ export default function Home() {
           </section>
 
           {/* ─────────────────────────────────────────────── CASE STUDIES */}
-          <section id="work" className="py-16 md:py-20 border-t border-rule">
+          <section id="work" className="pt-12 pb-[112px] border-t border-rule">
             <Reveal>
-              <div className="mb-12">
+              <div className="mb-10">
                 <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
                   Case studies /
                 </p>
               </div>
             </Reveal>
 
-            <div className="grid md:grid-cols-1 gap-0">
+            <div className="grid md:grid-cols-1 gap-5">
               {homepageCaseStudies.map((c, i) => (
                 <Reveal key={c.slug} delay={i * 90}>
                   <WorkCard caseStudy={c} bare />
@@ -101,7 +101,7 @@ export default function Home() {
             </div>
 
             <Reveal delay={homepageCaseStudies.length * 90}>
-              <div className="mt-10">
+              <div className="mt-8">
                 <a
                   href="/work"
                   className="inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.08em] text-muted hover:text-ink transition-colors"
@@ -114,9 +114,9 @@ export default function Home() {
         </div>
 
         {/* ─────────────────────────────────────────────── SELECTED CLIENTS (full-width carousel) */}
-        <section className="py-16 md:py-20 border-t border-rule overflow-hidden">
+        <section className="pt-16 pb-24 border-t border-rule overflow-hidden">
           <Reveal>
-            <div className="max-w-site mx-auto px-6 md:px-12 mb-10">
+            <div className="max-w-site mx-auto px-5 md:px-8 lg:px-12 mb-8">
               <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
                 Selected clients /
               </p>
@@ -145,15 +145,15 @@ export default function Home() {
         </section>
 
         {/* ── bottom container ── */}
-        <div className="max-w-site mx-auto px-6 md:px-12">
+        <div className="max-w-site mx-auto px-5 md:px-8 lg:px-12">
 
           {/* ─────────────────────────────────────────────── ENGAGEMENTS */}
-          <section className="py-16 md:py-20 border-t border-rule">
+          <section className="pt-16 pb-[120px] border-t border-rule">
             <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-16">
               {/* Left: label + headline */}
               <Reveal>
                 <div>
-                  <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-8">
+                  <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-6">
                     Engagements /
                   </p>
                   <h2 className="display text-[28px] md:text-[36px] leading-[1.15] tracking-tight">

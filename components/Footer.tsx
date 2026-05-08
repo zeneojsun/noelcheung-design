@@ -11,19 +11,19 @@ const services = [
 
 export default function Footer() {
   return (
-    <footer id="contact" className="border-t border-rule mt-12 pt-20 pb-10">
-      <div className="max-w-site mx-auto px-6 md:px-12">
-        <div className="grid md:grid-cols-[1.6fr_1fr] gap-12 md:gap-16 mb-16">
+    <footer id="contact" className="border-t border-rule pt-10 pb-10">
+      <div className="max-w-site mx-auto px-5 md:px-8 lg:px-12">
+        <div className="grid md:grid-cols-[1.6fr_1fr] gap-12 md:gap-16 mb-[112px]">
           <div>
-            <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-8">
+            <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-6">
               Contact /
             </p>
 
-            <p className="font-sans font-medium text-[clamp(28px,4vw,40px)] leading-[1.15] tracking-tight mb-8">
+            <p className="font-sans font-medium text-[clamp(28px,4vw,40px)] leading-[1.15] tracking-tight mb-10">
               Have a project that needs a design diagnosis?
             </p>
 
-            <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-5">
+            <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-4">
               How we work together
             </p>
 
@@ -38,19 +38,19 @@ export default function Footer() {
               ))}
             </ul>
 
-            <div className="flex flex-wrap gap-3 items-center">
+            <div className="flex flex-wrap gap-4 items-center">
               <a
                 href={siteConfig.cal}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 border border-rule font-mono text-[12px] font-medium uppercase tracking-[0.12em] hover:border-ink hover:-translate-y-px transition-all duration-200"
+                className="inline-flex items-center gap-2 h-12 rounded-full px-6 border border-rule font-mono text-[12px] font-medium hover:border-ink hover:-translate-y-px transition-all duration-200"
               >
                 Book a call
                 <ArrowUpRight size={12} strokeWidth={2.5} className="flex-shrink-0" />
               </a>
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 bg-ink text-paper font-mono text-[12px] font-medium uppercase tracking-[0.12em] hover:opacity-90 hover:-translate-y-px transition-all duration-200"
+                className="inline-flex items-center h-12 rounded-full px-6 bg-ink text-paper font-mono text-[12px] font-medium hover:opacity-90 hover:-translate-y-px transition-all duration-200"
               >
                 Email me
               </a>

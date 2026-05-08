@@ -42,7 +42,7 @@ export default function EngagementsAccordion() {
               aria-expanded={isOpen}
               aria-controls={contentId}
               onClick={() => setOpenItem(isOpen ? null : item.n)}
-              className="w-full grid grid-cols-[48px_1fr_20px] gap-4 md:gap-8 items-center py-6 text-left"
+              className="w-full grid grid-cols-[48px_1fr_20px] gap-4 md:gap-8 items-center py-7 text-left"
             >
               <span className="font-mono text-[12px] uppercase tracking-[0.1em] text-muted">
                 {item.n}
