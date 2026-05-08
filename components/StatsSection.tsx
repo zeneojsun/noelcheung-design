@@ -67,7 +67,7 @@ export default function StatsSection() {
       >
         <a
           href="#contact"
-          className="inline-flex items-center h-14 rounded-full px-8 bg-ink text-paper font-mono text-base font-semibold hover:opacity-90 hover:-translate-y-px transition-all duration-200"
+          className="inline-flex items-center h-12 rounded-full px-8 bg-ink text-paper font-mono text-sm font-medium hover:opacity-90 hover:-translate-y-px transition-all duration-200"
         >
           Get in touch
         </a>
