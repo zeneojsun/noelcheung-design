@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WorkCard from "@/components/WorkCard";
 import EngagementsAccordion from "@/components/EngagementsAccordion";
+import ServicesAccordion from "@/components/ServicesAccordion";
 import Reveal from "@/components/Reveal";
 import StatsSection from "@/components/StatsSection";
 import { cv } from "@/lib/cv";
@@ -55,15 +56,7 @@ export default function Home() {
 
           {/* ─────────────────────────────────────────────── CASE STUDIES */}
           <section id="work" className="pt-12 pb-[112px] border-t border-rule">
-            <Reveal>
-              <div className="mb-10">
-                <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
-                  Case studies /
-                </p>
-              </div>
-            </Reveal>
-
-            <div className="grid md:grid-cols-1 gap-5">
+            <div className="grid md:grid-cols-1 gap-0">
               {homepageCaseStudies.map((c, i) => (
                 <Reveal key={c.slug} delay={i * 90}>
                   <WorkCard caseStudy={c} bare />
@@ -72,42 +65,37 @@ export default function Home() {
             </div>
 
             <Reveal delay={homepageCaseStudies.length * 90}>
-              <div className="mt-8">
+              <div className="mt-10">
                 <a
                   href="/work"
-                  className="inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.08em] text-muted hover:text-ink transition-colors"
+                  className="inline-flex items-center h-12 rounded-full px-8 border border-rule font-mono text-sm font-medium text-ink hover:bg-ink hover:text-paper hover:-translate-y-px transition-all duration-200"
                 >
-                  See all works →
+                  Learn more
                 </a>
               </div>
             </Reveal>
           </section>
         </div>
 
-        {/* ─────────────────────────────────────────────── SELECTED CLIENTS (full-width carousel) */}
-        <section className="pt-16 pb-24 border-t border-rule overflow-hidden">
+        {/* ─────────────────────────────────────────────── SELECTED CLIENTS (static grid) */}
+        <section className="pt-16 pb-24 border-t border-rule">
           <Reveal>
-            <div className="max-w-site mx-auto px-5 md:px-8 lg:px-12 mb-8">
+            <div className="max-w-site mx-auto px-5 md:px-8 lg:px-12 mb-10">
               <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
                 Clients I&apos;ve served /
               </p>
             </div>
           </Reveal>
 
-          <div className="logo-carousel-wrapper overflow-hidden">
-            <div className="logo-carousel">
-              {[...clientLogos, ...clientLogos].map((c, i) => (
-                <div
-                  key={`${c.slug}-${i}`}
-                  className="flex-shrink-0 flex items-center mx-12"
-                  style={{ height: "40px" }}
-                  aria-hidden={i >= clientLogos.length ? true : undefined}
-                >
+          <div className="max-w-site mx-auto px-5 md:px-8 lg:px-12">
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-x-8 gap-y-10">
+              {clientLogos.map((c) => (
+                <div key={c.slug} className="flex items-center justify-center h-10">
                   <img
                     src={`/clients/logo-${c.slug}.svg`}
-                    alt={i >= clientLogos.length ? "" : c.name}
+                    alt={c.name}
                     height={40}
-                    className="h-10 w-auto brightness-0 opacity-40 dark:invert hover:opacity-80 transition-opacity duration-300"
+                    className="h-10 w-auto brightness-0 opacity-40 hover:opacity-70 transition-opacity duration-300"
                   />
                 </div>
               ))}
@@ -137,6 +125,29 @@ export default function Home() {
               {/* Right: accordion */}
               <Reveal delay={100}>
                 <EngagementsAccordion />
+              </Reveal>
+            </div>
+          </section>
+
+          {/* ─────────────────────────────────────────────── SERVICES */}
+          <section className="pt-16 pb-[120px] border-t border-rule">
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-16">
+              {/* Left: label + headline */}
+              <Reveal>
+                <div>
+                  <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-6">
+                    Services /
+                  </p>
+                  <h2 className="display text-[28px] md:text-[36px] leading-[1.15] tracking-tight">
+                    How we work<br />
+                    <em>together</em>
+                  </h2>
+                </div>
+              </Reveal>
+
+              {/* Right: accordion */}
+              <Reveal delay={100}>
+                <ServicesAccordion />
               </Reveal>
             </div>
           </section>

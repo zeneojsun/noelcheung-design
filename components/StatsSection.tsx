@@ -4,9 +4,9 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useInView, animate } from "framer-motion";
 
 const outcomes = [
-  { prefix: "$", value: 300, suffix: "M+", label: "USD value saved across client projects" },
-  { prefix: "",  value: 10,  suffix: "+",  label: "Enterprise products shipped" },
-  { prefix: "",  value: 20,  suffix: "+",  label: "Clients served, from MNCs to startups" },
+  { prefix: "$", value: 300, suffix: "M", label: "USD value saved across client projects" },
+  { prefix: "",  value: 10,  suffix: "",  label: "Enterprise products shipped" },
+  { prefix: "",  value: 20,  suffix: "",  label: "Clients served, from MNCs to startups" },
 ];
 
 function StatBlock({
@@ -34,7 +34,7 @@ function StatBlock({
   return (
     <div className="pt-5">
       <p className="text-sm text-muted leading-snug mb-3">{label}</p>
-      <p className="display text-[64px] md:text-[80px] leading-[1] tracking-tight tabular-nums font-semibold">
+      <p className="display text-[64px] leading-[1] tracking-tight tabular-nums font-semibold">
         {prefix}{displayed}{suffix}
       </p>
     </div>
