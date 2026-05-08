@@ -69,13 +69,13 @@ export default function Home() {
             <div className="rise rise-5 flex flex-wrap items-center gap-4">
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 h-12 rounded-full px-6 bg-ink text-paper font-mono text-[12px] font-medium hover:opacity-90 hover:-translate-y-px transition-all duration-200"
+                className="inline-flex items-center gap-2 h-12 rounded-full px-8 bg-ink text-paper font-mono text-base font-medium hover:opacity-90 hover:-translate-y-px transition-all duration-200"
               >
                 Request availability
               </a>
               <a
                 href="#work"
-                className="inline-flex items-center gap-2 h-12 rounded-full px-6 border border-rule font-mono text-[12px] font-medium hover:border-ink hover:-translate-y-px transition-all duration-200"
+                className="inline-flex items-center gap-2 h-12 rounded-full px-8 border border-rule font-mono text-base font-medium hover:border-ink hover:-translate-y-px transition-all duration-200"
               >
                 See my work
               </a>

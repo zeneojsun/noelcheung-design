@@ -43,14 +43,14 @@ export default function Footer() {
                 href={siteConfig.cal}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 h-12 rounded-full px-6 border border-rule font-mono text-[12px] font-medium hover:border-ink hover:-translate-y-px transition-all duration-200"
+                className="inline-flex items-center gap-2 h-12 rounded-full px-8 border border-rule font-mono text-base font-medium hover:border-ink hover:-translate-y-px transition-all duration-200"
               >
                 Book a call
                 <ArrowUpRight size={12} strokeWidth={2.5} className="flex-shrink-0" />
               </a>
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="inline-flex items-center h-12 rounded-full px-6 bg-ink text-paper font-mono text-[12px] font-medium hover:opacity-90 hover:-translate-y-px transition-all duration-200"
+                className="inline-flex items-center h-12 rounded-full px-8 bg-ink text-paper font-mono text-base font-medium hover:opacity-90 hover:-translate-y-px transition-all duration-200"
               >
                 Email me
               </a>
