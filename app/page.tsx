@@ -52,6 +52,29 @@ const writingItems = [
   { title: "Notes from building Human For Human in Japan",                             tag: "Draft" },
 ];
 
+const careerItems = [
+  {
+    index: "01",
+    title: "Fine Art & Visual Craft",
+    desc: "Started with drawing, layout, branding, and visual communication.",
+  },
+  {
+    index: "02",
+    title: "UI, UX & Product Design",
+    desc: "Moved from visual execution into interaction, usability, product thinking, and business-driven design.",
+  },
+  {
+    index: "03",
+    title: "Systems & Turnaround Work",
+    desc: "Took on complex 0-to-1 and transformation projects, often helping teams clarify, fix, and ship products under pressure.",
+  },
+  {
+    index: "04",
+    title: "Coaching & AI-era Design",
+    desc: "After mentoring hundreds of designers, building a practice around helping designers and teams adapt to a changing industry.",
+  },
+];
+
 const contactItems = [
   { label: "Email",       value: "hello@noelcheung.design",         href: "mailto:hello@noelcheung.design" },
   { label: "Book a call", value: "cal.com/noelcheung",              href: "https://cal.com/noelcheung" },
@@ -197,24 +220,142 @@ export default function Home() {
           </Stagger>
         </section>
 
-        {/* ── ABOUT ── */}
+        {/* ── ORIGIN ── */}
         <section id="about" className="pt-14 pb-20 border-t border-rule">
           <FadeUp>
             <h2 className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-2 mb-10">
-              About
+              Origin
             </h2>
           </FadeUp>
-          <FadeUp delay={0.1} className="space-y-5 max-w-[52ch]">
-            <p className="text-[15px] leading-[1.75] text-ink-soft">
-              I started in fine art and graphic design, then moved through visual design, UI, UX,
-              product design, and design systems. That path shaped how I work today: I can move from
-              messy strategy to detailed interface craft, and from component-level decisions to
-              system-level adoption.
-            </p>
-            <p className="text-[15px] leading-[1.75] text-ink-soft">
-              Today I work independently from Fukuoka through Human For Human 合同会社, helping teams
-              design clearer products, stronger systems, and better ways of working.
-            </p>
+          <FadeUp delay={0.1}>
+            <h3 className="serif text-[22px] sm:text-[26px] leading-[1.3] tracking-[-0.01em] text-ink mb-8 max-w-[28ch]">
+              Who is Noel?
+            </h3>
+            <div className="space-y-5 max-w-[52ch]">
+              <p className="text-[15px] leading-[1.75] text-ink-soft">
+                Noel started in fine art and graphic design.
+              </p>
+              <p className="text-[15px] leading-[1.75] text-ink-soft">
+                His early career was visual: layout, branding, e-commerce, retail, production, and
+                aesthetics. Over time, he moved from visual design into UI, interaction, UX, product
+                design, and design systems — shifting from retail into finance, fintech, and crypto.
+              </p>
+              <p className="text-[15px] leading-[1.75] text-ink-soft">
+                That path changed how he thinks.
+              </p>
+              <p className="text-[15px] leading-[1.75] text-ink-soft">
+                He became less interested in making isolated screens and more interested in how
+                products, teams, systems, and businesses actually work. Across agencies, corporate
+                teams, fintech products, and crypto platforms, he built a design approach shaped by
+                visual craft, usability, product thinking, HCI, business needs, and scalable systems.
+              </p>
+              <p className="text-[15px] leading-[1.75] text-ink-soft">
+                Good design is not only about how something looks. It is about helping people
+                understand the problem, make better decisions, and ship work that creates real value.
+              </p>
+              <p className="pt-2">
+                <a
+                  href="/about"
+                  className="text-[13px] font-medium text-ink hover:text-muted transition-colors duration-200"
+                >
+                  Read full story →
+                </a>
+              </p>
+            </div>
+          </FadeUp>
+        </section>
+
+        {/* ── CAREER ARC ── */}
+        <section className="pt-14 pb-20 border-t border-rule">
+          <FadeUp>
+            <h2 className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-2 mb-10">
+              A generalist path, shaped by change
+            </h2>
+          </FadeUp>
+          <Stagger className="divide-y divide-rule">
+            {careerItems.map((item) => (
+              <StaggerItem key={item.index}>
+                <div className="grid sm:grid-cols-[200px_1fr] gap-1 sm:gap-10 py-5">
+                  <div className="flex items-baseline gap-3">
+                    <span className="text-[11px] tabular-nums text-muted-2 font-mono tracking-[0.04em]">
+                      {item.index}
+                    </span>
+                    <span className="text-[14px] text-ink">{item.title}</span>
+                  </div>
+                  <span className="text-[14px] text-muted leading-[1.65]">{item.desc}</span>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </section>
+
+        {/* ── PHILOSOPHY ── */}
+        <section className="pt-14 pb-20 border-t border-rule">
+          <FadeUp>
+            <h2 className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-2 mb-10">
+              Philosophy
+            </h2>
+          </FadeUp>
+          <FadeUp delay={0.1}>
+            <h3 className="serif text-[22px] sm:text-[26px] leading-[1.3] tracking-[-0.01em] text-ink mb-8 max-w-[32ch]">
+              Design should move things forward.
+            </h3>
+            <div className="space-y-5 max-w-[52ch]">
+              <p className="text-[15px] leading-[1.75] text-ink-soft">
+                Good design is not only about making things look better.
+              </p>
+              <p className="text-[15px] leading-[1.75] text-ink-soft">
+                It is about helping teams understand the problem, make better decisions, and move
+                toward a result. Design should be clear, useful, scalable, and connected to
+                business value.
+              </p>
+              <div className="border-t border-rule mt-4 pt-8 space-y-2">
+                <p className="serif text-[18px] sm:text-[20px] leading-[1.4] text-ink">
+                  Design should ship.
+                </p>
+                <p className="serif text-[18px] sm:text-[20px] leading-[1.4] text-ink">
+                  Design should create value.
+                </p>
+                <p className="serif text-[18px] sm:text-[20px] leading-[1.4] text-ink">
+                  Design should help people move forward.
+                </p>
+              </div>
+            </div>
+          </FadeUp>
+        </section>
+
+        {/* ── CURRENT DIRECTION ── */}
+        <section className="pt-14 pb-20 border-t border-rule">
+          <FadeUp>
+            <h2 className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-2 mb-10">
+              Current direction
+            </h2>
+          </FadeUp>
+          <FadeUp delay={0.1}>
+            <h3 className="serif text-[22px] sm:text-[26px] leading-[1.3] tracking-[-0.01em] text-ink mb-8 max-w-[34ch]">
+              Helping designers adapt to the AI era.
+            </h3>
+            <div className="space-y-5 max-w-[52ch]">
+              <p className="text-[15px] leading-[1.75] text-ink-soft">
+                For the last few years, Noel has helped designers with portfolio direction, interview
+                preparation, career clarity, and design confidence.
+              </p>
+              <p className="text-[15px] leading-[1.75] text-ink-soft">
+                But the problem has changed.
+              </p>
+              <p className="text-[15px] leading-[1.75] text-ink-soft">
+                The old question was: <em>how can designers get better jobs?</em> The new question
+                is: <em>how can designers stay valuable when the rules of design are changing?</em>
+              </p>
+              <p className="text-[15px] leading-[1.75] text-ink-soft">
+                Noel is now building a design and coaching practice focused on helping designers and
+                teams adapt to the AI era — while staying grounded in craft, thinking, systems, and
+                human judgment.
+              </p>
+              <p className="text-[15px] leading-[1.75] text-muted">
+                This is where his portfolio, coaching work, and startup direction begin to connect.
+              </p>
+            </div>
           </FadeUp>
         </section>
 
