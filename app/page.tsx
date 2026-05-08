@@ -153,6 +153,61 @@ export default function Home() {
             </div>
           </section>
 
+          {/* ─────────────────────────────────────────────── MENTORSHIP */}
+          <section className="pt-16 pb-[120px] border-t border-rule">
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-16">
+              {/* Left */}
+              <Reveal>
+                <div>
+                  <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-6">
+                    Mentorship /
+                  </p>
+                  <h2 className="display text-[28px] md:text-[36px] leading-[1.15] tracking-tight mb-4">
+                    1:1 mentorship &amp;<br />
+                    <em>coaching</em>
+                  </h2>
+                  <p className="text-[15px] text-muted leading-relaxed mb-8 max-w-[26ch]">
+                    Together, we unpack how you can grow to the next level in your career.
+                  </p>
+                  <a
+                    href="#contact"
+                    className="font-mono text-[12px] uppercase tracking-[0.08em] text-ink underline underline-offset-4 hover:text-muted transition-colors duration-150"
+                  >
+                    Get in touch
+                  </a>
+                </div>
+              </Reveal>
+
+              {/* Right: two cards */}
+              <Reveal delay={100}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div className="bg-surface rounded-2xl p-7">
+                    <h3 className="text-[17px] font-semibold leading-[1.3] mb-4">
+                      Leadership Coaching
+                    </h3>
+                    <p className="text-[14px] text-muted leading-relaxed mb-3">
+                      Leading designers and not sure if you&apos;re doing it right? Perhaps you&apos;re brand new to managing other managers?
+                    </p>
+                    <p className="text-[14px] text-muted leading-relaxed">
+                      We&apos;ll work together to discover how you can become an expert manager and design leader, just like you became an expert designer.
+                    </p>
+                  </div>
+                  <div className="bg-surface rounded-2xl p-7">
+                    <h3 className="text-[17px] font-semibold leading-[1.3] mb-4">
+                      Design Mentorship
+                    </h3>
+                    <p className="text-[14px] text-muted leading-relaxed mb-3">
+                      Looking to level up in your design career? Feeling stuck in your current role?
+                    </p>
+                    <p className="text-[14px] text-muted leading-relaxed">
+                      We&apos;ll work together to identify strengths and weaknesses, unpacking feedback from your team, to build a plan that helps you make meaningful progress in your career.
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          </section>
+
           {/* ─────────────────────────────────────────────── NEWSLETTER */}
           <section className="pt-16 pb-[120px] border-t border-rule">
             <Reveal>
