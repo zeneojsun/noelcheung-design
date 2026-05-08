@@ -46,7 +46,7 @@ export default function Home() {
             </p>
 
             <h1 className="display text-[48px] md:text-[80px] font-bold leading-[1.05] tracking-[-0.03em] mb-10 max-w-[18ch] rise rise-2">
-              I help teams fix and launch products that actually work.
+              Noel helps teams fix and launch products that actually work.
             </h1>
 
             <p className="text-lg md:text-xl leading-[1.6] max-w-[640px] mb-10 rise rise-3 text-muted">
