@@ -66,12 +66,18 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="rise rise-5">
+            <div className="rise rise-5 flex flex-wrap items-center gap-3">
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-5 py-3 bg-ink text-paper font-mono text-[12px] font-medium uppercase tracking-[0.12em] hover:opacity-80 transition-opacity"
+                className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 bg-ink text-paper font-mono text-[12px] font-medium uppercase tracking-[0.12em] hover:opacity-90 hover:-translate-y-px transition-all duration-200"
               >
                 Request availability
+              </a>
+              <a
+                href="#work"
+                className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 border border-rule font-mono text-[12px] font-medium uppercase tracking-[0.12em] hover:border-ink hover:-translate-y-px transition-all duration-200"
+              >
+                See my work
               </a>
             </div>
           </section>

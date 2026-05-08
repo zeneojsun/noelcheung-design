@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 
 const services = [
@@ -26,7 +27,7 @@ export default function Footer() {
               How we work together
             </p>
 
-            <ul className="mb-10 space-y-3">
+            <ul className="mb-12 space-y-3">
               {services.map((service, i) => (
                 <li key={i} className="flex items-baseline gap-3">
                   <span className="font-mono text-[11px] text-muted w-9 flex-shrink-0">
@@ -42,15 +43,16 @@ export default function Footer() {
                 href={siteConfig.cal}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 border border-rule font-mono text-[12px] font-medium uppercase tracking-[0.12em] hover:bg-hover transition-colors"
+                className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 border border-rule font-mono text-[12px] font-medium uppercase tracking-[0.12em] hover:border-ink hover:-translate-y-px transition-all duration-200"
               >
-                Book a call ↗
+                Book a call
+                <ArrowUpRight size={12} strokeWidth={2.5} className="flex-shrink-0" />
               </a>
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="inline-flex items-center gap-2 px-5 py-3 bg-ink text-paper font-mono text-[12px] font-medium uppercase tracking-[0.12em] hover:opacity-80 transition-opacity"
+                className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 bg-ink text-paper font-mono text-[12px] font-medium uppercase tracking-[0.12em] hover:opacity-90 hover:-translate-y-px transition-all duration-200"
               >
-                Email me →
+                Email me
               </a>
             </div>
           </div>
