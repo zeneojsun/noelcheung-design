@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { caseStudies } from "@/lib/case-studies";
 
 export const metadata: Metadata = {
-  title: "OKX Lite — Global-Ready Design System for OKX Lite. — Noel Cheung",
+  title: "OKX Lite Design System — Noel Cheung",
   description: "Led the end-to-end development of a scalable design system adopted across global markets — driving consistency, performance, and team efficiency.",
 };
 
@@ -19,114 +19,120 @@ export default function OKXLitePage() {
       <Header />
 
       <main>
-        <article className="max-w-site mx-auto px-6 md:px-12">
+        <article className="max-w-site mx-auto px-5 md:px-8 lg:px-14">
+
           {/* Breadcrumb */}
-          <div className="pt-12 pb-6 border-b border-rule">
+          <div style={{ paddingTop: 48, paddingBottom: 24, borderBottom: "1px solid var(--rule)" }}>
             <Link
               href="/work"
-              className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted border-b border-transparent hover:opacity-60 transition-colors"
+              className="eyebrow hover:text-accent transition-colors duration-200"
             >
               ← All work
             </Link>
           </div>
 
           {/* Case hero */}
-          <section className="py-16 md:py-24">
+          <section style={{ padding: "clamp(64px,9vw,96px) 0" }}>
             <div className="grid md:grid-cols-12 gap-8 mb-12">
-              <div className="md:col-span-2 space-y-4">
-                <MetaItem label="Case" value={`№ ${cs.num}`} />
-                <MetaItem label="Year" value="2022–23" />
+              <div className="md:col-span-2 flex flex-col gap-5">
+                <CaseMeta label="Case" value={`№ ${cs.num}`} />
+                <CaseMeta label="Year" value="2022–23" />
               </div>
-              <div className="md:col-span-3 space-y-4">
-                <MetaItem label="Role" value={cs.role} />
-                <MetaItem label="Status" value="Shipped" />
+              <div className="md:col-span-3 flex flex-col gap-5">
+                <CaseMeta label="Role" value={cs.role} />
+                <CaseMeta label="Status" value="Shipped" />
               </div>
               <div className="md:col-span-7">
-                <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-4">
-                  {cs.meta}
-                </p>
-                <h1 className="display text-4xl md:text-6xl lg:text-7xl leading-[1.02] mb-8">
-                  {cs.title}
-                  <em>{cs.titleEm}</em>
+                <p className="eyebrow mb-4">{cs.meta}</p>
+                <h1 className="display" style={{ fontSize: "clamp(36px, 6vw, 80px)", marginBottom: 32 }}>
+                  OKX Lite Design System.
                 </h1>
-                <p className="text-xl leading-relaxed text-ink/80">
+                <p style={{ fontSize: 20, lineHeight: 1.6, color: "var(--ink)", opacity: 0.8, margin: 0 }}>
                   {cs.body}
                 </p>
               </div>
             </div>
 
             {/* Impact band */}
-            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 border-y border-rule py-8 gap-px">
+            <div style={{
+              marginTop: 64,
+              paddingTop: 32,
+              paddingBottom: 32,
+              borderTop: "1px solid var(--rule)",
+              borderBottom: "1px solid var(--rule)",
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+            }}>
               {cs.impact.map((stat, i) => (
                 <div
                   key={i}
-                  className="px-4 first:pl-0 md:border-r border-rule last:border-0"
+                  style={{
+                    padding: "0 16px",
+                    borderRight: i < cs.impact.length - 1 ? "1px solid var(--rule)" : "none",
+                  }}
                 >
                   {stat.value && (
-                    <p className="display text-3xl md:text-5xl tabular leading-none mb-2">
+                    <p className="display tabular" style={{ fontSize: "clamp(28px, 4.5vw, 56px)", marginBottom: 8 }}>
                       {stat.value}
                     </p>
                   )}
-                  <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
-                    {stat.label}
-                  </p>
+                  <p className="eyebrow" style={{ marginTop: 0 }}>{stat.label}</p>
                 </div>
               ))}
             </div>
           </section>
 
           {/* The Journey */}
-          <section className="py-12 md:py-16">
+          <section style={{ padding: "clamp(48px,6vw,64px) 0" }}>
             <div className="grid md:grid-cols-12 gap-8">
-              <div className="md:col-span-8 md:col-start-3 space-y-16">
+              <div className="md:col-span-8 md:col-start-3 flex flex-col gap-16">
+
                 <div>
-                  <h2 className="display text-3xl md:text-4xl mb-6">The Journey</h2>
-                  <p className="text-lg leading-relaxed text-ink/80 mb-8">
-                    How we built a comprehensive design system from the ground up
+                  <h2 className="display" style={{ fontSize: "clamp(28px, 3.4vw, 40px)", marginBottom: 24 }}>
+                    The Journey
+                  </h2>
+                  <p style={{ fontSize: 18, lineHeight: 1.6, color: "var(--ink)", opacity: 0.8, margin: 0 }}>
+                    How we built a comprehensive design system from the ground up.
                   </p>
                 </div>
 
-                <PhaseBlock
-                  phase="01"
+                <Phase
+                  num="01"
                   title="Audit & Alignment"
                   content="We began with a comprehensive audit of existing UI patterns and inconsistencies across the platform. This phase involved close collaboration with product teams to understand their needs and pain points. We established clear goals and metrics for the design system, ensuring alignment with business objectives and technical constraints."
                   outcome="Unified vision and roadmap"
                 />
-
-                <PhaseBlock
-                  phase="02"
+                <Phase
+                  num="02"
                   title="System Build"
-                  content="With a clear direction established, we created a comprehensive token architecture as the foundation of our system. We developed component libraries with careful attention to variants, states, and accessibility. This phase involved close collaboration with engineering to ensure technical feasibility and implementation efficiency. We documented everything meticulously to support adoption."
+                  content="With a clear direction established, we created a comprehensive token architecture as the foundation of our system. We developed component libraries with careful attention to variants, states, and accessibility. This phase involved close collaboration with engineering to ensure technical feasibility and implementation efficiency."
                   outcome="1000+ components and patterns"
                 />
-
-                <PhaseBlock
-                  phase="03"
+                <Phase
+                  num="03"
                   title="Rollout & Governance"
-                  content="The final phase focused on driving adoption across teams through education, workshops, and support. We established a clear governance model with contribution guidelines, review processes, and maintenance procedures. We implemented feedback loops to continuously improve the system based on real-world usage. This phase was critical for ensuring long-term sustainability."
+                  content="The final phase focused on driving adoption across teams through education, workshops, and support. We established a clear governance model with contribution guidelines, review processes, and maintenance procedures. We implemented feedback loops to continuously improve the system based on real-world usage."
                   outcome="95% adoption across teams"
                 />
               </div>
             </div>
           </section>
 
-          <hr className="border-rule my-8" />
+          <hr style={{ border: 0, borderTop: "1px solid var(--rule)", margin: "0 0 0" }} />
 
           {/* Next case */}
-          <section className="py-16 md:py-24">
-            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted mb-4">
-              Next case
-            </p>
-            <Link href={next.href} className="group block">
-              <h2 className="display text-3xl md:text-5xl leading-[1.1] group-hover:opacity-70 transition-colors">
-                {next.title}
-                <em>{next.titleEm}</em>{" "}
-                <span className="inline-block group-hover:translate-x-2 transition-transform">
+          <section style={{ padding: "clamp(64px, 8vw, 96px) 0" }}>
+            <p className="eyebrow" style={{ marginBottom: 16 }}>Next case</p>
+            <Link href={next.href} className="group block hover:opacity-70 transition-opacity">
+              <h2 className="display" style={{ fontSize: "clamp(28px, 4.6vw, 56px)", margin: 0 }}>
+                {next.title}{next.titleEm ? <em>{next.titleEm}</em> : null}{" "}
+                <span style={{ display: "inline-block", transition: "transform 0.3s cubic-bezier(.19,1,.22,1)" }} className="group-hover:translate-x-2">
                   →
                 </span>
               </h2>
             </Link>
           </section>
+
         </article>
       </main>
 
@@ -135,40 +141,26 @@ export default function OKXLitePage() {
   );
 }
 
-function MetaItem({ label, value }: { label: string; value: string }) {
+function CaseMeta({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted mb-1">
-        {label}
-      </p>
-      <p className="text-sm">{value}</p>
+      <p className="eyebrow" style={{ marginBottom: 4 }}>{label}</p>
+      <p style={{ margin: 0, fontSize: 14 }}>{value}</p>
     </div>
   );
 }
 
-function PhaseBlock({
-  phase,
-  title,
-  content,
-  outcome,
-}: {
-  phase: string;
-  title: string;
-  content: string;
-  outcome: string;
+function Phase({ num, title, content, outcome }: {
+  num: string; title: string; content: string; outcome: string;
 }) {
   return (
-    <div className="border-t border-rule pt-8">
-      <div className="flex items-center gap-4 mb-4">
-        <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">
-          Phase {phase}
-        </span>
-        <h3 className="display text-2xl md:text-3xl">{title}</h3>
+    <div style={{ borderTop: "1px solid var(--rule)", paddingTop: 32 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 16, flexWrap: "wrap" }}>
+        <span className="eyebrow">Phase {num}</span>
+        <h3 className="display" style={{ margin: 0, fontSize: "clamp(22px, 2.6vw, 32px)" }}>{title}</h3>
       </div>
-      <p className="text-lg leading-relaxed text-ink/80 mb-4">{content}</p>
-      <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
-        Key outcome: {outcome}
-      </p>
+      <p style={{ fontSize: 18, lineHeight: 1.65, color: "var(--ink)", opacity: 0.8, marginBottom: 16 }}>{content}</p>
+      <p className="eyebrow">Key outcome: {outcome}</p>
     </div>
   );
 }

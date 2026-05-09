@@ -2,28 +2,71 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WorkCard from "@/components/WorkCard";
 import EngagementsAccordion from "@/components/EngagementsAccordion";
-import ServicesAccordion from "@/components/ServicesAccordion";
-import NewsletterForm from "@/components/NewsletterForm";
 import Reveal from "@/components/Reveal";
 import StatsSection from "@/components/StatsSection";
-import { cv } from "@/lib/cv";
 import { caseStudies } from "@/lib/case-studies";
+import { siteConfig } from "@/lib/site-config";
 
-const clientLogos = [
-  { name: "HSBC", slug: "hsbc" },
-  { name: "OKX", slug: "okx" },
-  { name: "Melco", slug: "melco" },
-  { name: "Generali", slug: "generali" },
-  { name: "HKJC", slug: "hkjc" },
-  { name: "OSL", slug: "osl" },
-  { name: "Hong Huan", slug: "hong-huan" },
-  { name: "Garlican", slug: "garlican" },
-  { name: "Ralph Lauren", slug: "ralph-lauren" },
-  { name: "Macy's", slug: "macys" },
-  { name: "Fung Group", slug: "fung-group" },
-  { name: "Eslite 誠品", slug: "eslite" },
+const clients = [
+  "OKX", "OSL", "Melco", "HSBC", "Generali",
+  "HKJC", "Ralph Lauren", "Macy's", "Fung Group", "Eslite 誠品",
 ];
 
+const services = [
+  {
+    n: "01",
+    title: "Design Audit",
+    body: "Focused diagnostic on an existing product — heuristics, flows, IA. Output is a prioritised remediation plan, not a generic findings deck.",
+  },
+  {
+    n: "02",
+    title: "Design System Build",
+    body: "From token architecture to multi-brand governance. Shipped at OKX (1000+ components, 95% adoption) and Melco (40% cost saved).",
+  },
+  {
+    n: "03",
+    title: "0→1 Product Design",
+    body: "Ambiguous brief, small team, hard deadline. I build foundations that hold up through scale — UX, IA, and a system that ships alongside v1.",
+  },
+  {
+    n: "04",
+    title: "Fractional Design Lead",
+    body: "Embed part-time as senior design voice. Strategy, hiring, ops, and quality gating — without adding a full-time headcount.",
+  },
+  {
+    n: "05",
+    title: "Product Turnaround",
+    body: "Rescue work. Root-cause analysis, reframing, fast execution. At HSBC India: shelved project → 7× submissions, full GDR approval.",
+  },
+  {
+    n: "06",
+    title: "Agentic AI Design",
+    body: "Design infrastructure for AI-in-the-loop products. Confidence states, correction UX, reviewable output, and tokens as source of truth.",
+  },
+];
+
+const mentorship = [
+  {
+    title: "Leadership Coaching",
+    body: [
+      "Leading designers and not sure if you're doing it right? Perhaps you're brand new to managing other managers?",
+      "We'll work together to discover how you can become an expert manager and design leader, just like you became an expert designer.",
+    ],
+  },
+  {
+    title: "Design Mentorship",
+    body: [
+      "Looking to level up in your design career? Feeling stuck in your current role?",
+      "We'll work together to identify strengths and weaknesses, unpacking feedback from your team, to build a plan that helps you make meaningful progress in your career.",
+    ],
+  },
+];
+
+const ArrowSvg = () => (
+  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ width: 14, height: 14 }}>
+    <path d="M3.5 10.5 10.5 3.5" /><path d="M4.5 3.5h6v6" />
+  </svg>
+);
 
 export default function Home() {
   const homepageCaseStudies = caseStudies.filter((c) => c.slug !== "a2ui");
@@ -33,195 +76,173 @@ export default function Home() {
       <Header />
 
       <main>
-        {/* ── top container ── */}
-        <div className="max-w-site mx-auto px-5 md:px-8 lg:px-12">
+        {/* ─────────────────────────────────────── HERO */}
+        <section id="top" className="hero">
+          <div className="max-w-site mx-auto px-5 md:px-8 lg:px-14">
 
-          {/* ─────────────────────────────────────────────── HERO */}
-          <section className="pt-[70px] pb-16">
-            <h1 className="display text-[48px] md:text-[80px] font-semibold leading-[1.05] tracking-[-0.03em] mb-3 max-w-[18ch] rise rise-1">
-              Noel helps teams fix and launch products that actually work
+            <h1 className="display rise rise-1" style={{ fontSize: "clamp(48px, 8.2vw, 124px)", marginBottom: "clamp(24px, 3vh, 40px)", maxWidth: "14ch", letterSpacing: "-0.035em" }}>
+              Noel helps teams <em>fix</em> and launch products that actually <em>work.</em>
             </h1>
 
-            <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-10 flex items-center gap-3 rise rise-2">
-              {cv.tagline}
+            <p className="rise rise-2" style={{ maxWidth: "56ch", fontSize: "clamp(17px, 1.45vw, 22px)", lineHeight: 1.5, color: "var(--ink)", marginBottom: "clamp(36px, 5vh, 64px)" }}>
+              Fifteen years across fintech, crypto, and enterprise teams. I step into complex products, fix what&apos;s broken, and turn them into scalable systems — so teams can move faster and ship with confidence.
             </p>
 
-            <p className="text-lg md:text-xl leading-[1.6] max-w-[640px] mb-12 rise rise-3 text-muted">
-              14+ years in design, focused on fintech and crypto. I step into
-              complex products, fix what&apos;s broken, and turn them into scalable
-              systems — so teams can move faster and ship with confidence.
-            </p>
+            <div className="hero-meta-row rise rise-3">
+              <div className="meta-cell">
+                <span className="eyebrow k">Role</span>
+                <span className="v">Fractional Lead / Solo Designer</span>
+              </div>
+              <div className="meta-cell">
+                <span className="eyebrow k">Focus</span>
+                <span className="v">DX · 0→1 · Design systems · AI · Quick turnarounds</span>
+              </div>
+              <div className="meta-cell">
+                <span className="eyebrow k">Based</span>
+                <span className="v">Remote · Japan</span>
+              </div>
+            </div>
 
             <StatsSection />
-          </section>
 
-          {/* ─────────────────────────────────────────────── CASE STUDIES */}
-          <section id="work" className="pt-12 pb-[112px] border-t border-rule">
-            <div className="grid md:grid-cols-1 gap-0">
-              {homepageCaseStudies.map((c, i) => (
-                <Reveal key={c.slug} delay={i * 90}>
-                  <WorkCard caseStudy={c} bare />
+            <div className="cta-row rise rise-5">
+              <a href={siteConfig.cal} target="_blank" rel="noreferrer" className="btn btn-primary">
+                Book a call <span className="arrow"><ArrowSvg /></span>
+              </a>
+              <a href="#work" className="btn btn-ghost">
+                See work
+              </a>
+            </div>
+
+          </div>
+        </section>
+
+        {/* ─────────────────────────────────────── WORK */}
+        <section id="work" className="section">
+          <div className="max-w-site mx-auto px-5 md:px-8 lg:px-14">
+            <Reveal>
+              <div className="sec-head">
+                <div>
+                  <span className="eyebrow" style={{ display: "block", marginBottom: 14 }}>Selected Work</span>
+                  <h2 className="display" style={{ margin: 0, fontSize: "clamp(28px, 3.4vw, 44px)" }}>
+                    Things I&apos;ve <em>built</em>, fixed, and shipped.
+                  </h2>
+                </div>
+              </div>
+            </Reveal>
+
+            <div className="work-list">
+              {homepageCaseStudies.map((cs, i) => (
+                <Reveal key={cs.slug} delay={i * 90}>
+                  <WorkCard caseStudy={cs} />
                 </Reveal>
               ))}
             </div>
 
             <Reveal delay={homepageCaseStudies.length * 90}>
-              <div className="mt-10">
-                <a
-                  href="/work"
-                  className="inline-flex items-center h-12 rounded-full px-8 border border-rule font-mono text-sm font-medium text-ink hover:bg-ink hover:text-paper hover:-translate-y-px transition-all duration-200"
-                >
-                  Learn more
-                </a>
+              <a href="/work" className="see-all">See all work →</a>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ─────────────────────────────────────── CLIENTS */}
+        <section className="clients-section">
+          <div className="max-w-site mx-auto px-5 md:px-8 lg:px-14">
+            <Reveal>
+              <span className="eyebrow" style={{ display: "block", marginBottom: "clamp(32px, 4vh, 48px)" }}>
+                Clients I&apos;ve served
+              </span>
+            </Reveal>
+            <Reveal delay={120}>
+              <div className="clients-grid">
+                {clients.map((c, i) => (
+                  <div key={i} className="client-cell">{c}</div>
+                ))}
               </div>
             </Reveal>
-          </section>
-        </div>
+          </div>
+        </section>
 
-        {/* ─────────────────────────────────────────────── SELECTED CLIENTS (static grid) */}
-        <section className="pt-16 pb-24 border-t border-rule">
-          <Reveal>
-            <div className="max-w-site mx-auto px-5 md:px-8 lg:px-12 mb-10">
-              <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
-                Clients I&apos;ve served /
-              </p>
-            </div>
-          </Reveal>
-
-          <div className="max-w-site mx-auto px-5 md:px-8 lg:px-12">
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-x-8 gap-y-10">
-              {clientLogos.map((c) => (
-                <div key={c.slug} className="flex items-center justify-center h-10">
-                  <img
-                    src={`/clients/logo-${c.slug}.svg`}
-                    alt={c.name}
-                    height={40}
-                    className="h-10 w-auto brightness-0 opacity-40 hover:opacity-70 transition-opacity duration-300"
-                  />
+        {/* ─────────────────────────────────────── ENGAGEMENTS */}
+        <section id="engagements" className="section">
+          <div className="max-w-site mx-auto px-5 md:px-8 lg:px-14">
+            <div className="engage-grid">
+              <Reveal>
+                <div>
+                  <span className="eyebrow" style={{ display: "block", marginBottom: 24 }}>Engagements</span>
+                  <h2 className="display" style={{ margin: 0, fontSize: "clamp(28px, 3.4vw, 44px)" }}>
+                    I&apos;m usually<br />brought in <em>when:</em>
+                  </h2>
                 </div>
-              ))}
+              </Reveal>
+              <Reveal delay={120}>
+                <EngagementsAccordion />
+              </Reveal>
             </div>
           </div>
         </section>
 
-        {/* ── bottom container ── */}
-        <div className="max-w-site mx-auto px-5 md:px-8 lg:px-12">
-
-          {/* ─────────────────────────────────────────────── ENGAGEMENTS */}
-          <section className="pt-16 pb-[120px] border-t border-rule">
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-16">
-              {/* Left: label + headline */}
+        {/* ─────────────────────────────────────── SERVICES */}
+        <section id="services" className="section">
+          <div className="max-w-site mx-auto px-5 md:px-8 lg:px-14">
+            <div className="engage-grid">
               <Reveal>
                 <div>
-                  <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-6">
-                    Engagements /
-                  </p>
-                  <h2 className="display text-[28px] md:text-[36px] leading-[1.15] tracking-tight">
-                    I&apos;m usually brought in<br />
-                    <em>when:</em>
+                  <span className="eyebrow" style={{ display: "block", marginBottom: 24 }}>How we work together</span>
+                  <h2 className="display" style={{ margin: 0, fontSize: "clamp(28px, 3.4vw, 44px)" }}>
+                    Services <em>I</em><br />offer.
                   </h2>
                 </div>
               </Reveal>
-
-              {/* Right: accordion */}
-              <Reveal delay={100}>
-                <EngagementsAccordion />
-              </Reveal>
-            </div>
-          </section>
-
-          {/* ─────────────────────────────────────────────── SERVICES */}
-          <section className="pt-16 pb-[120px] border-t border-rule">
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-16">
-              {/* Left: label + headline */}
-              <Reveal>
-                <div>
-                  <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-6">
-                    Services /
-                  </p>
-                  <h2 className="display text-[28px] md:text-[36px] leading-[1.15] tracking-tight">
-                    How we work<br />
-                    <em>together</em>
-                  </h2>
+              <Reveal delay={120}>
+                <div className="services-grid">
+                  {services.map((it) => (
+                    <div key={it.n} className="service-cell">
+                      <p className="eyebrow service-num">{it.n}</p>
+                      <h3 className="service-title">{it.title}</h3>
+                      <p className="service-body">{it.body}</p>
+                    </div>
+                  ))}
                 </div>
               </Reveal>
-
-              {/* Right: accordion */}
-              <Reveal delay={100}>
-                <ServicesAccordion />
-              </Reveal>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* ─────────────────────────────────────────────── MENTORSHIP */}
-          <section className="pt-16 pb-[120px] border-t border-rule">
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-16">
-              {/* Left */}
+        {/* ─────────────────────────────────────── MENTORSHIP */}
+        <section id="mentorship" className="section">
+          <div className="max-w-site mx-auto px-5 md:px-8 lg:px-14">
+            <div className="mentorship-grid">
               <Reveal>
                 <div>
-                  <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted mb-6">
-                    Mentorship /
-                  </p>
-                  <h2 className="display text-[28px] md:text-[36px] leading-[1.15] tracking-tight mb-4">
-                    1:1 mentorship &amp;<br />
-                    <em>coaching</em>
+                  <span className="eyebrow" style={{ display: "block", marginBottom: 24 }}>Service</span>
+                  <h2 className="display" style={{ margin: 0, fontSize: "clamp(28px, 3.4vw, 44px)" }}>
+                    1:1 mentorship<br />&amp; <em>coaching</em>
                   </h2>
-                  <p className="text-[15px] text-muted leading-relaxed mb-8 max-w-[26ch]">
+                  <p style={{ margin: "24px 0 28px", maxWidth: "26ch", fontSize: 16, lineHeight: 1.55, color: "var(--muted)" }}>
                     Together, we unpack how you can grow to the next level in your career.
                   </p>
-                  <a
-                    href="#contact"
-                    className="font-mono text-[12px] uppercase tracking-[0.08em] text-ink underline underline-offset-4 hover:text-muted transition-colors duration-150"
-                  >
-                    Get in touch
+                  <a href="#contact" className="btn btn-primary">
+                    Book a call <span className="arrow"><ArrowSvg /></span>
                   </a>
                 </div>
               </Reveal>
-
-              {/* Right: two cards */}
-              <Reveal delay={100}>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div className="bg-surface rounded-2xl p-7">
-                    <h3 className="text-[17px] font-semibold leading-[1.3] mb-4">
-                      Leadership Coaching
-                    </h3>
-                    <p className="text-[14px] text-muted leading-relaxed mb-3">
-                      Leading designers and not sure if you&apos;re doing it right? Perhaps you&apos;re brand new to managing other managers?
-                    </p>
-                    <p className="text-[14px] text-muted leading-relaxed">
-                      We&apos;ll work together to discover how you can become an expert manager and design leader, just like you became an expert designer.
-                    </p>
-                  </div>
-                  <div className="bg-surface rounded-2xl p-7">
-                    <h3 className="text-[17px] font-semibold leading-[1.3] mb-4">
-                      Design Mentorship
-                    </h3>
-                    <p className="text-[14px] text-muted leading-relaxed mb-3">
-                      Looking to level up in your design career? Feeling stuck in your current role?
-                    </p>
-                    <p className="text-[14px] text-muted leading-relaxed">
-                      We&apos;ll work together to identify strengths and weaknesses, unpacking feedback from your team, to build a plan that helps you make meaningful progress in your career.
-                    </p>
-                  </div>
+              <Reveal delay={120}>
+                <div className="mentorship-cards">
+                  {mentorship.map((it) => (
+                    <div key={it.title} className="mentorship-card">
+                      <h3 className="mentorship-card-title">{it.title}</h3>
+                      {it.body.map((p, i) => (
+                        <p key={i} className="mentorship-card-body">{p}</p>
+                      ))}
+                    </div>
+                  ))}
                 </div>
               </Reveal>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* ─────────────────────────────────────────────── NEWSLETTER */}
-          <section className="pt-16 pb-[120px] border-t border-rule">
-            <Reveal>
-              <h2 className="display text-[22px] font-semibold leading-[1.2] mb-3">
-                Newsletter
-              </h2>
-              <p className="text-[15px] text-muted leading-relaxed mb-8 max-w-[480px]">
-                Exclusive, newsletter-only content once a month. No spam, no nonsense.
-              </p>
-              <NewsletterForm />
-            </Reveal>
-          </section>
-
-        </div>
       </main>
 
       <Footer />
