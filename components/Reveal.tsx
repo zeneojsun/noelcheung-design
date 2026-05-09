@@ -20,15 +20,11 @@ export default function Reveal({
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          el.style.willChange = "opacity, transform";
-          setTimeout(() => {
-            el.classList.add("reveal-in");
-            setTimeout(() => { el.style.willChange = "auto"; }, 950);
-          }, delay);
+          setTimeout(() => el.classList.add("reveal-in"), delay);
           io.unobserve(el);
         }
       },
-      { threshold: 0.08, rootMargin: "0px 0px -32px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
     );
 
     io.observe(el);
