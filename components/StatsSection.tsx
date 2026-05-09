@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import { motion, useInView, animate } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const stats = [
   { prefix: "$", value: 300, suffix: "M+", label: "USD value saved across client projects" },
@@ -9,26 +8,37 @@ const stats = [
   { prefix: "",  value: 20,  suffix: "+",  label: "Clients served, MNCs to startups" },
 ];
 
+function easeOutExpo(t: number): number {
+  return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+}
+
 function StatNum({
-  prefix, value, suffix, label, started, delay,
+  prefix, value, suffix, label, delay,
 }: {
-  prefix: string; value: number; suffix: string; label: string;
-  started: boolean; delay: number;
+  prefix: string; value: number; suffix: string; label: string; delay: number;
 }) {
   const [displayed, setDisplayed] = useState(0);
 
   useEffect(() => {
-    if (!started) return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced) { setDisplayed(value); return; }
-    const controls = animate(0, value, {
-      duration: 2.4,
-      ease: [0.16, 1, 0.3, 1],
-      delay: delay / 1000,
-      onUpdate: (v) => setDisplayed(Math.round(v)),
-    });
-    return controls.stop;
-  }, [started, value, delay]);
+
+    let rafId: number;
+    const duration = 2000;
+
+    const timeoutId = setTimeout(() => {
+      let start: number | null = null;
+      const tick = (timestamp: number) => {
+        if (!start) start = timestamp;
+        const progress = Math.min((timestamp - start) / duration, 1);
+        setDisplayed(Math.round(easeOutExpo(progress) * value));
+        if (progress < 1) rafId = requestAnimationFrame(tick);
+      };
+      rafId = requestAnimationFrame(tick);
+    }, delay);
+
+    return () => { clearTimeout(timeoutId); cancelAnimationFrame(rafId); };
+  }, [value, delay]);
 
   return (
     <div>
@@ -39,20 +49,12 @@ function StatNum({
 }
 
 export default function StatsSection() {
-  const ref    = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.15 });
-
   return (
-    <div ref={ref} className="hero-stats">
+    <div className="hero-stats">
       {stats.map((s, i) => (
-        <motion.div
-          key={i}
-          initial={{ opacity: 0, y: 24 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: i * 0.15 }}
-        >
-          <StatNum {...s} started={inView} delay={i * 220} />
-        </motion.div>
+        <div key={i} className="rise" style={{ animationDelay: `${0.56 + i * 0.16}s` }}>
+          <StatNum {...s} delay={600 + i * 220} />
+        </div>
       ))}
     </div>
   );
