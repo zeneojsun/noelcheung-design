@@ -22,7 +22,7 @@ export default {
         muted:   "var(--text-muted)",
         rule:    "var(--hairline)",
         hover:   "var(--hover)",
-        // No accent — chromatic accent removed per R2 brief
+        accent: "var(--accent)",
       },
       maxWidth: {
         site: "1200px",
