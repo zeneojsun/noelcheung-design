@@ -80,12 +80,12 @@ export default function Home() {
         <section id="top" className="hero">
           <div className="max-w-site mx-auto px-5 md:px-8 lg:px-14">
 
-            <h1 className="display rise rise-1" style={{ fontSize: "clamp(48px, 8.2vw, 124px)", marginBottom: "clamp(24px, 3vh, 40px)", maxWidth: "14ch", letterSpacing: "-0.035em" }}>
-              Noel helps teams <em>fix</em> and launch products that actually <em>work.</em>
+            <h1 className="display rise rise-1" style={{ fontSize: "clamp(44px, 7.6vw, 116px)", marginBottom: "clamp(24px, 3vh, 40px)", maxWidth: "14ch" }}>
+              Noel helps teams <em>fix</em> and launch products that actually <em>work</em><span style={{ color: "var(--ink)" }}>.</span>
             </h1>
 
-            <p className="rise rise-2" style={{ maxWidth: "56ch", fontSize: "clamp(17px, 1.45vw, 22px)", lineHeight: 1.5, color: "var(--ink)", marginBottom: "clamp(36px, 5vh, 64px)" }}>
-              Fifteen years across fintech, crypto, and enterprise teams. I step into complex products, fix what&apos;s broken, and turn them into scalable systems — so teams can move faster and ship with confidence.
+            <p className="lede rise rise-2" style={{ maxWidth: "56ch", fontSize: "clamp(17px, 1.45vw, 22px)", lineHeight: 1.5, color: "var(--ink)", marginBottom: "clamp(36px, 5vh, 64px)" }}>
+              Fifteen years across <em>fintech</em>, crypto, and enterprise teams. I step into complex products, fix what&apos;s broken, and turn them into scalable systems — so teams can move faster and ship with confidence.
             </p>
 
             <div className="hero-meta-row rise rise-3">
@@ -95,11 +95,11 @@ export default function Home() {
               </div>
               <div className="meta-cell">
                 <span className="eyebrow k">Focus</span>
-                <span className="v">DX · 0→1 · Design systems · AI · Quick turnarounds</span>
+                <span className="v">0→1 · Agentic workflow · Architecture</span>
               </div>
               <div className="meta-cell">
                 <span className="eyebrow k">Based</span>
-                <span className="v">Remote · Japan</span>
+                <span className="v">Japan</span>
               </div>
             </div>
 
@@ -108,9 +108,6 @@ export default function Home() {
             <div className="cta-row rise rise-5">
               <a href={siteConfig.cal} target="_blank" rel="noreferrer" className="btn btn-primary">
                 Book a call <span className="arrow"><ArrowSvg /></span>
-              </a>
-              <a href="#work" className="btn btn-ghost">
-                See work
               </a>
             </div>
 
@@ -124,7 +121,7 @@ export default function Home() {
               <div className="sec-head">
                 <div>
                   <span className="eyebrow" style={{ display: "block", marginBottom: 14 }}>Selected Work</span>
-                  <h2 className="display" style={{ margin: 0, fontSize: "clamp(28px, 3.4vw, 44px)" }}>
+                  <h2 className="display section-h2" style={{ margin: 0 }}>
                     Things I&apos;ve <em>built</em>, fixed, and shipped.
                   </h2>
                 </div>
@@ -140,7 +137,9 @@ export default function Home() {
             </div>
 
             <Reveal delay={homepageCaseStudies.length * 90}>
-              <a href="/work" className="see-all">See all work →</a>
+              <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                <a href="/work" className="see-all">See all work →</a>
+              </div>
             </Reveal>
           </div>
         </section>
@@ -170,7 +169,7 @@ export default function Home() {
               <Reveal>
                 <div>
                   <span className="eyebrow" style={{ display: "block", marginBottom: 24 }}>Engagements</span>
-                  <h2 className="display" style={{ margin: 0, fontSize: "clamp(28px, 3.4vw, 44px)" }}>
+                  <h2 className="display section-h2" style={{ margin: 0 }}>
                     I&apos;m usually<br />brought in <em>when:</em>
                   </h2>
                 </div>
@@ -189,7 +188,7 @@ export default function Home() {
               <Reveal>
                 <div>
                   <span className="eyebrow" style={{ display: "block", marginBottom: 24 }}>How we work together</span>
-                  <h2 className="display" style={{ margin: 0, fontSize: "clamp(28px, 3.4vw, 44px)" }}>
+                  <h2 className="display section-h2" style={{ margin: 0 }}>
                     Services <em>I</em><br />offer.
                   </h2>
                 </div>
@@ -198,7 +197,6 @@ export default function Home() {
                 <div className="services-grid">
                   {services.map((it) => (
                     <div key={it.n} className="service-cell">
-                      <p className="eyebrow service-num">{it.n}</p>
                       <h3 className="service-title">{it.title}</h3>
                       <p className="service-body">{it.body}</p>
                     </div>
@@ -216,14 +214,14 @@ export default function Home() {
               <Reveal>
                 <div>
                   <span className="eyebrow" style={{ display: "block", marginBottom: 24 }}>Service</span>
-                  <h2 className="display" style={{ margin: 0, fontSize: "clamp(28px, 3.4vw, 44px)" }}>
+                  <h2 className="display section-h2" style={{ margin: 0 }}>
                     1:1 mentorship<br />&amp; <em>coaching</em>
                   </h2>
                   <p style={{ margin: "24px 0 28px", maxWidth: "26ch", fontSize: 16, lineHeight: 1.55, color: "var(--muted)" }}>
                     Together, we unpack how you can grow to the next level in your career.
                   </p>
                   <a href="#contact" className="btn btn-primary">
-                    Book a call <span className="arrow"><ArrowSvg /></span>
+                    Learn more <span className="arrow"><ArrowSvg /></span>
                   </a>
                 </div>
               </Reveal>

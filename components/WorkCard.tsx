@@ -20,7 +20,6 @@ export default function WorkCard({ caseStudy }: { caseStudy: CaseStudy; bare?: b
       </div>
 
       <div>
-        <p className="work-meta">{meta}</p>
         <p className="work-body">{body}</p>
       </div>
     </Link>
