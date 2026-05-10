@@ -12,8 +12,8 @@
   --accent: #1f7a4d;
   --avail:  #2e7a45;
 
-  --font-display: "Fraunces", "Times New Roman", serif;
-  --font-body:    "Inter Tight", -apple-system, "Helvetica Neue", sans-serif;
+  --font-display: "Inter Tight", -apple-system, "Helvetica Neue", sans-serif;
+  --font-body:    "Satoshi", -apple-system, "Helvetica Neue", sans-serif;
   --font-mono:    "Geist Mono", ui-monospace, monospace;
 }
 
@@ -76,14 +76,15 @@ img { max-width: 100%; display: block; }
 /* ── Typography ──────────────────────────────────────── */
 .display {
   font-family: var(--font-display);
-  font-weight: 400;
-  letter-spacing: -0.025em;
+  font-weight: 500;
+  letter-spacing: -0.03em;
   line-height: 1.02;
 }
 
 .display em {
   font-style: italic;
   color: var(--accent);
+  font-weight: 500;
 }
 
 .eyebrow {
