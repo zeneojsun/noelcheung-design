@@ -20,82 +20,42 @@ const items = [
   },
   {
     id: "4",
-    title: "An existing product is expanding into new markets or brands.",
+    title: "A product is expanding into new markets or brands.",
     body: "Multi-brand token architecture, localisation systems, and design governance for teams shipping across regions. From single-product to scalable platform.",
   },
 ];
 
-function AccordionIcon({ open }: { open: boolean }) {
-  return (
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true" style={{ flexShrink: 0 }}>
-      <g style={{ opacity: open ? 0 : 1, transition: "opacity 150ms ease" }}>
-        <line x1="4" y1="11" x2="18" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-        <line x1="11" y1="4" x2="11" y2="18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      </g>
-      <g style={{ opacity: open ? 1 : 0, transition: "opacity 150ms ease" }}>
-        <line x1="5.5" y1="5.5" x2="16.5" y2="16.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-        <line x1="16.5" y1="5.5" x2="5.5" y2="16.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      </g>
-    </svg>
-  );
-}
-
 export default function EngagementsAccordion() {
-  const [openId, setOpenId] = useState<string | null>(null);
+  const [openId, setOpenId] = useState<string>("1");
 
   return (
-    <div>
+    <div className="accordion">
       {items.map((item) => {
         const isOpen = openId === item.id;
         const contentId = `eng-body-${item.id}`;
         const btnId = `eng-btn-${item.id}`;
 
         return (
-          <div key={item.id} className="border-t border-rule">
+          <div key={item.id} className={`item ${isOpen ? "accordion-open" : ""}`}>
             <button
               id={btnId}
               aria-expanded={isOpen}
               aria-controls={contentId}
-              onClick={() => setOpenId(isOpen ? null : item.id)}
-              className="w-full flex items-center justify-between gap-6 py-6 text-left"
+              onClick={() => setOpenId(isOpen ? "" : item.id)}
+              className="accordion-btn"
             >
-              <span
-                style={{
-                  fontSize: "18px",
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 500,
-                  lineHeight: 1.35,
-                  letterSpacing: "-0.02em",
-                  color: "var(--ink)",
-                }}
-              >
-                {item.title}
-              </span>
-              <span
-                className="text-muted"
-                style={{ flexShrink: 0 }}
-              >
-                <AccordionIcon open={isOpen} />
-              </span>
+              <span className="accordion-ttl">{item.title}</span>
+              <span className="accordion-plus" aria-hidden="true" />
             </button>
 
             <div
               id={contentId}
               role="region"
               aria-labelledby={btnId}
-              style={{
-                display: "grid",
-                gridTemplateRows: isOpen ? "1fr" : "0fr",
-                transition: "grid-template-rows 280ms ease",
-              }}
+              className="accordion-panel"
             >
-              <div className="overflow-hidden">
-                <p
-                  className="text-muted pb-6"
-                  style={{ fontSize: 15, lineHeight: 1.6, maxWidth: "58ch" }}
-                >
-                  {item.body}
-                </p>
+              <div>
+                <p>{item.body}</p>
               </div>
             </div>
           </div>

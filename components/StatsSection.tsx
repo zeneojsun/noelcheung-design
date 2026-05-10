@@ -1,58 +1,74 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import { motion, useInView, animate } from "framer-motion";
 
 const stats = [
-  { prefix: "$", value: 300, suffix: "M+", label: "USD value saved across client projects" },
-  { prefix: "",  value: 10,  suffix: "+",  label: "Enterprise products shipped" },
-  { prefix: "",  value: 20,  suffix: "+",  label: "Clients served, MNCs to startups" },
+  { num: "$300M+", label: "USD value saved across client projects" },
+  { num: "10+",    label: "Enterprise products shipped" },
+  { num: "20+",    label: "Clients served, MNCs to startups" },
 ];
 
-function StatNum({
-  prefix, value, suffix, label, started, delay,
-}: {
-  prefix: string; value: number; suffix: string; label: string;
-  started: boolean; delay: number;
-}) {
-  const [displayed, setDisplayed] = useState(0);
+function StatNum({ value, started, delay = 0 }: { value: string; started: boolean; delay?: number }) {
+  const m = String(value).match(/^([^\d]*)([\d.]+)(.*)$/);
+  if (!m) return <span>{value}</span>;
+  const [, prefix, n, suffix] = m;
+  const target = parseFloat(n);
+  const [v, setV] = useState(0);
 
   useEffect(() => {
     if (!started) return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) { setDisplayed(value); return; }
-    const controls = animate(0, value, {
-      duration: 2.4,
-      ease: [0.16, 1, 0.3, 1],
-      delay: delay / 1000,
-      onUpdate: (v) => setDisplayed(Math.round(v)),
-    });
-    return controls.stop;
-  }, [started, value, delay]);
+    if (reduced) { setV(target); return; }
+    let raf: number;
+    let start: number | undefined;
+    const dur = 2400;
+    const ease = (p: number) => 1 - Math.pow(1 - p, 5);
+    const step = (t: number) => {
+      if (!start) start = t;
+      const elapsed = t - start - delay;
+      if (elapsed < 0) { raf = requestAnimationFrame(step); return; }
+      const p = Math.min(1, elapsed / dur);
+      setV(target * ease(p));
+      if (p < 1) raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [started, target, delay]);
 
-  return (
-    <div>
-      <p className="stat-num tabular">{prefix}{displayed}{suffix}</p>
-      <p className="stat-lbl">{label}</p>
-    </div>
-  );
+  const display = target % 1 === 0
+    ? (v < target ? Math.floor(v).toString() : String(target))
+    : v.toFixed(1);
+
+  return <span>{prefix}{display}{suffix}</span>;
 }
 
 export default function StatsSection() {
-  const ref    = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.15 });
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { setInView(true); io.disconnect(); }
+    }, { threshold: 0.05 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   return (
     <div ref={ref} className="hero-stats">
       {stats.map((s, i) => (
-        <motion.div
+        <div
           key={i}
-          initial={{ opacity: 0, y: 24 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: i * 0.15 }}
+          className={`reveal${inView ? " reveal-in" : ""}`}
+          style={{ transitionDelay: `${140 + i * 160}ms` }}
         >
-          <StatNum {...s} started={inView} delay={i * 220} />
-        </motion.div>
+          <p className="stat-num tabular">
+            <StatNum value={s.num} started={inView} delay={i * 220} />
+          </p>
+          <p className="stat-lbl">{s.label}</p>
+        </div>
       ))}
     </div>
   );

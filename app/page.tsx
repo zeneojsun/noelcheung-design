@@ -95,11 +95,11 @@ export default function Home() {
               </div>
               <div className="meta-cell">
                 <span className="eyebrow k">Focus</span>
-                <span className="v">0→1 · Agentic workflow · Architecture</span>
+                <span className="v">DX · 0→1 · Design systems · AI · Quick turnarounds</span>
               </div>
               <div className="meta-cell">
                 <span className="eyebrow k">Based</span>
-                <span className="v">Japan</span>
+                <span className="v">Remote · Japan</span>
               </div>
             </div>
 
@@ -137,9 +137,7 @@ export default function Home() {
             </div>
 
             <Reveal delay={homepageCaseStudies.length * 90}>
-              <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                <a href="/work" className="see-all">See all work →</a>
-              </div>
+              <a href="/work" className="see-all">See all work →</a>
             </Reveal>
           </div>
         </section>
@@ -197,7 +195,7 @@ export default function Home() {
                 <div className="services-grid">
                   {services.map((it) => (
                     <div key={it.n} className="service-cell">
-                      <span className="eyebrow service-num">{it.n}</span>
+                      <p className="service-num">{it.n}</p>
                       <h3 className="service-title">{it.title}</h3>
                       <p className="service-body">{it.body}</p>
                     </div>
