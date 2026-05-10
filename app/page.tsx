@@ -197,6 +197,7 @@ export default function Home() {
                 <div className="services-grid">
                   {services.map((it) => (
                     <div key={it.n} className="service-cell">
+                      <span className="eyebrow service-num">{it.n}</span>
                       <h3 className="service-title">{it.title}</h3>
                       <p className="service-body">{it.body}</p>
                     </div>
@@ -221,7 +222,7 @@ export default function Home() {
                     Together, we unpack how you can grow to the next level in your career.
                   </p>
                   <a href="#contact" className="btn btn-primary">
-                    Learn more <span className="arrow"><ArrowSvg /></span>
+                    Book a call <span className="arrow"><ArrowSvg /></span>
                   </a>
                 </div>
               </Reveal>

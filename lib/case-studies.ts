@@ -15,7 +15,7 @@ export const caseStudies: CaseStudy[] = [
   {
     num: "01",
     slug: "okx-lite",
-    meta: "01 · OKGROUP · 2022–23 · 4 MONTHS · DESIGN SYSTEM · MOBILE",
+    meta: "OKGROUP · 2022–23 · 4 MONTHS · DESIGN SYSTEM · MOBILE",
     title: "OKX Lite Design System",
     role: "Product Design Lead",
     body: "Built OKX Lite's design system from scratch. Shipped MVP in 4 months with 95% adoption and 90%+ designer satisfaction.",
@@ -30,7 +30,7 @@ export const caseStudies: CaseStudy[] = [
   {
     num: "02",
     slug: "hsbc-india",
-    meta: "02 · HSBC · 2021–22 · 3 MONTHS · ONBOARDING · WEB + MOBILE",
+    meta: "HSBC · 2021–22 · 3 MONTHS · ONBOARDING · WEB + MOBILE",
     title: "HSBC India Onboarding",
     role: "Senior UX Consultant (via Zühlke)",
     body: "Rescued a shelved India onboarding project. Secured cross-regional GDR approval, eliminated all manual operations, and 7× user submissions.",
@@ -44,7 +44,7 @@ export const caseStudies: CaseStudy[] = [
   {
     num: "03",
     slug: "melco",
-    meta: "03 · MELCO · 2019–21 · 3 MONTHS · DESIGN SYSTEM · MOBILE",
+    meta: "MELCO · 2019–21 · 3 MONTHS · DESIGN SYSTEM · MOBILE",
     title: "Melco Member App",
     role: "Senior UX Designer",
     body: "Designed Melco's first member loyalty app. Cut production cost by 40% and doubled team efficiency through a reusable system.",
