@@ -18,11 +18,11 @@ export const caseStudies: CaseStudy[] = [
     meta: "OKGroup · 2022–23 · Design System · Mobile",
     title: "OKX Lite Design System.",
     role: "Product Design Lead",
-    body: "Built OKX Lite's design system from scratch. Shipped MVP in four months with 95% adoption and 90%+ designer satisfaction.",
+    body: "Built OKX Lite's design system from scratch. Shipped MVP in 3 months with 98% adoption at rollout.",
     impact: [
       { value: "40%", label: "cost saving" },
       { value: "1000+", label: "components" },
-      { value: "95%", label: "adoption" },
+      { value: "98%", label: "adoption" },
       { label: "Governance model" },
     ],
     href: "/work/okx-lite",
