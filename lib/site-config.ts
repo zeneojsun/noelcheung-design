@@ -11,6 +11,7 @@ export const siteConfig = {
   nav: [
     { label: "Work", href: "#work" },
     { label: "Services", href: "#services" },
+    { label: "Coaching", href: "/coaching" },
     { label: "About", href: "/about" },
   ],
 

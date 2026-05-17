@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Coaching & Advisory — Noel Cheung</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,380;0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Inter+Tight:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#f4f1ea">
+
+<style>
+  /* Force light theme — ignore system dark mode entirely */
+  :root{
+    color-scheme: light;
+
+    --paper:#f4f1ea;
+    --ink:#1a1815;
+    --muted:#6b655d;
+    --rule:#d8d3c8;
+    --hover:#ece8df;
+    --accent:#1f7a4d;
+    --avail:#2e7a45;
+    --card:#fbfaf6;
+
+    --font-display:"Fraunces","Times New Roman",serif;
+    --font-body:"Inter Tight",-apple-system,"Helvetica Neue",sans-serif;
+    --font-mono:"Geist Mono",ui-monospace,monospace;
+
+    --gutter: max(20px, min(56px, 4vw));
+    --site-max: 1240px;
+  }
+
+  /* Override any user-agent or browser dark-mode shifting */
+  @media (prefers-color-scheme: dark){
+    :root{
+      color-scheme: light;
+      --paper:#f4f1ea;
+      --ink:#1a1815;
+      --muted:#6b655d;
+      --rule:#d8d3c8;
+      --hover:#ece8df;
+      --accent:#1f7a4d;
+      --avail:#2e7a45;
+      --card:#fbfaf6;
+    }
+    html, body{ background:#f4f1ea !important; color:#1a1815 !important; }
+  }
+
+  *{box-sizing:border-box}
+  html{
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    text-rendering:optimizeLegibility;
+    scroll-behavior:smooth;
+    background:#f4f1ea;
+    color:#1a1815;
+  }
+  body{
+    margin:0;
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink);
+    background: var(--paper);
+    letter-spacing: -0.005em;
+    font-feature-settings: "ss01","cv11";
+  }
+  ::selection{ background: var(--ink); color: var(--paper); }
+  :focus-visible{ outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
+
+  /* Paper grain — toned WAY down. Was causing contrast collapse on some renderers. */
+  body::before{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.025 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: .35;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+  p{ margin: 0; }
+  ul{ margin: 0; padding: 0; list-style: none; }
+
+  .mono{ font-family: var(--font-mono); }
+  .eyebrow{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .eyebrow .num{ color: var(--rule); }
+
+  .container{
+    max-width: var(--site-max);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ─────────────── Header ─────────────── */
+  .header{
+    position: sticky; top:0; z-index: 50;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    height: 68px; display:flex; align-items:center;
+  }
+  .header .container{ display:flex; align-items:center; justify-content:space-between; gap: 24px; width: 100%; }
+  .brand{ display:flex; align-items:center; gap:10px; font-weight:500; letter-spacing:-0.02em; font-size:15px; }
+  .brand .dot{ width:8px; height:8px; border-radius:50%; background: var(--avail); box-shadow: 0 0 0 3px rgba(46,122,69,.18); animation: pulse 2.4s ease-in-out infinite; }
+  @keyframes pulse{ 0%,100%{ box-shadow:0 0 0 3px rgba(46,122,69,.20);} 50%{ box-shadow:0 0 0 6px rgba(46,122,69,.05);} }
+  .nav{ display:flex; align-items:center; gap: 28px; font-family: var(--font-mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; }
+  .nav a{ color: var(--muted); transition: color .2s; }
+  .nav a:hover{ color: var(--accent); }
+  .nav .num{ color: var(--rule); margin-right:6px; }
+  .nav .current{ color: var(--ink); }
+  @media (max-width: 720px){ .nav a:not(.current){ display:none; } }
+
+  /* ─────────────── Buttons ─────────────── */
+  .cta-row{ display:flex; gap: 12px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap: 10px; height: 50px;
+    padding: 0 26px; border-radius: 999px;
+    font-family: var(--font-mono); font-size: 12.5px; font-weight: 500;
+    letter-spacing: .04em;
+    transition: transform .2s, background .2s, color .2s, border-color .2s;
+    cursor: pointer; border: 1px solid transparent;
+    white-space: nowrap;
+  }
+  .btn:hover{ transform: translateY(-1px); }
+  .btn-primary{ background: var(--ink); color: var(--paper); }
+  .btn-primary:hover{ background: color-mix(in srgb, var(--ink) 86%, var(--paper)); }
+  .btn-ghost{ background: transparent; color: var(--ink); border-color: var(--rule); }
+  .btn-ghost:hover{ background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn .arrow{ display:inline-block; transition: transform .2s; }
+  .btn:hover .arrow{ transform: translate(2px,-2px); }
+
+  /* ─────────────── Page intro (no hero band) ─────────────── */
+  .page-intro{
+    padding: clamp(56px, 8vh, 96px) 0 clamp(40px, 5vh, 64px);
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    z-index: 2;
+  }
+  .breadcrumb{
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: clamp(24px, 4vh, 40px);
+  }
+  .breadcrumb a{ color: var(--muted); transition: color .2s; }
+  .breadcrumb a:hover{ color: var(--accent); }
+  .breadcrumb .sep{ color: var(--rule); margin: 0 10px; }
+
+  .intro-grid{
+    display:grid; grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 6vw, 96px);
+    align-items: end;
+  }
+  @media (max-width: 860px){ .intro-grid{ grid-template-columns: 1fr; gap: 36px; } }
+
+  .intro-h1{
+    margin: 0;
+    font-family: var(--font-display); font-weight: 380;
+    font-size: clamp(40px, 6.4vw, 92px);
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+    max-width: 14ch;
+    text-wrap: balance;
+  }
+  .intro-h1 em{ font-style: italic; color: var(--accent); }
+  .intro-h1 .strike{
+    position: relative;
+    color: var(--muted);
+  }
+  .intro-h1 .strike::after{
+    content:""; position: absolute; left: 0; right: 0; top: 54%;
+    height: 2px; background: var(--muted);
+    transform-origin: left;
+  }
+
+  .intro-side{
+    align-self: end;
+    padding-bottom: 8px;
+  }
+  .intro-side .label{ margin-bottom: 12px; }
+  .intro-lede{
+    font-size: clamp(16px, 1.3vw, 18px);
+    line-height: 1.6;
+    color: var(--ink);
+    max-width: 42ch;
+  }
+  .intro-lede em{ font-style: italic; color: var(--accent); font-family: var(--font-display); font-weight: 400; }
+
+  /* ─────────────── Two-column shell ─────────────── */
+  .shell{
+    display:grid;
+    grid-template-columns: 220px 1fr;
+    gap: clamp(40px, 6vw, 96px);
+    padding: clamp(48px, 7vh, 96px) 0 0;
+  }
+  @media (max-width: 960px){
+    .shell{ grid-template-columns: 1fr; gap: 0; }
+  }
+
+  /* Left sticky rail */
+  .rail{
+    position: sticky; top: 88px;
+    align-self: start;
+    border-top: 1px solid var(--rule);
+    padding-top: 24px;
+  }
+  @media (max-width: 960px){ .rail{ display: none; } }
+  .rail-label{ margin-bottom: 24px; }
+  .rail-list{ display: flex; flex-direction: column; }
+  .rail-list a{
+    display: grid; grid-template-columns: 24px 1fr;
+    gap: 12px; align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--font-mono); font-size: 12px;
+    letter-spacing: .06em; text-transform: uppercase;
+    color: var(--muted);
+    transition: color .2s, padding-left .2s;
+  }
+  .rail-list a:hover{ color: var(--ink); padding-left: 4px; }
+  .rail-list a.active{ color: var(--ink); }
+  .rail-list .num{ color: var(--rule); font-size: 10px; }
+  .rail-list a.active .num{ color: var(--accent); }
+
+  .rail-foot{
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+  }
+  .rail-foot p{ font-size: 13px; line-height: 1.5; color: var(--muted); margin-bottom: 16px; }
+  .rail-cta{
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono); font-size: 12px;
+    letter-spacing: .06em; text-transform: uppercase;
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 3px;
+    transition: opacity .2s, gap .2s;
+  }
+  .rail-cta:hover{ opacity: .6; gap: 12px; }
+
+  /* Right content column */
+  .content{ min-width: 0; }
+
+  /* ─────────────── Block (each scroll target) ─────────────── */
+  .block{ padding: clamp(48px, 7vh, 96px) 0; border-top: 1px solid var(--rule); }
+  .block:first-child{ border-top: 0; padding-top: 0; }
+  .block-head{ margin-bottom: clamp(32px, 5vh, 56px); }
+  .block-head h2{
+    margin: 12px 0 0;
+    font-family: var(--font-display); font-weight: 380;
+    font-size: clamp(28px, 3.6vw, 48px);
+    letter-spacing: -0.03em; line-height: 1.08;
+    max-width: 22ch;
+  }
+  .block-head h2 em{ font-style: italic; color: var(--accent); }
+  .block-lede{
+    margin-top: 20px;
+    font-size: clamp(15px, 1.2vw, 17px);
+    line-height: 1.65; color: var(--muted);
+    max-width: 56ch;
+  }
+
+  /* ─────────────── Without / With block (1 of the Career Mastery borrows) ─────────────── */
+  .compare{
+    display: grid; grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--rule);
+  }
+  @media (max-width: 720px){ .compare{ grid-template-columns: 1fr; } }
+  .compare-col{
+    padding: clamp(28px, 3.5vw, 40px) clamp(20px, 2.4vw, 32px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .compare-col + .compare-col{ border-left: 1px solid var(--rule); }
+  @media (max-width: 720px){ .compare-col + .compare-col{ border-left: 0; border-top: 1px solid var(--rule); } }
+  .compare-col.before{ background: transparent; }
+  .compare-col.after{ background: var(--hover); }
+  .compare-label{
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 24px;
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: .14em; text-transform: uppercase;
+  }
+  .compare-label .dot{
+    width: 7px; height: 7px; border-radius: 50%;
+  }
+  .before .compare-label{ color: var(--muted); }
+  .before .compare-label .dot{ background: var(--muted); }
+  .after .compare-label{ color: var(--accent); }
+  .after .compare-label .dot{ background: var(--accent); }
+
+  .compare-list li{
+    font-size: 15px; line-height: 1.6;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .compare-list li:last-child{ border-bottom: 0; }
+  .compare-list li::before{
+    content: ""; flex-shrink: 0;
+    width: 16px; height: 1px;
+    background: currentColor; opacity: .4;
+    margin-top: 12px;
+  }
+  .before .compare-list li{ color: var(--muted); }
+  .after .compare-list li{ color: var(--ink); }
+
+  /* ─────────────── Approach (origin woven in) ─────────────── */
+  .approach{
+    display: grid; grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .approach p{
+    font-size: 17px; line-height: 1.75; color: var(--ink);
+    max-width: 60ch;
+  }
+  .approach p + p{ margin-top: 22px; }
+  .approach p em{ font-style: italic; color: var(--accent); font-family: var(--font-display); font-weight: 400; }
+  .approach .quoted{
+    margin: clamp(32px, 4vh, 48px) 0;
+    padding: clamp(24px, 3vh, 36px) 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--font-display); font-weight: 400; font-style: italic;
+    font-size: clamp(22px, 2.4vw, 32px);
+    line-height: 1.3; letter-spacing: -0.02em;
+    color: var(--ink);
+    max-width: 22ch;
+  }
+  .quoted-attr{
+    margin-top: 14px;
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--muted);
+    font-style: normal;
+  }
+
+  /* ─────────────── Services (numbered list rows) ─────────────── */
+  .svc-list{ border-top: 1px solid var(--rule); }
+  .svc{
+    display: grid; grid-template-columns: 40px 1fr auto;
+    gap: clamp(20px, 3vw, 40px);
+    align-items: start;
+    padding: clamp(28px, 3.5vh, 40px) 0;
+    border-bottom: 1px solid var(--rule);
+    transition: padding-left .25s;
+  }
+  .svc:hover{ padding-left: 8px; }
+  .svc-num{
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: .14em; color: var(--muted);
+    padding-top: 6px;
+  }
+  .svc-body h3{
+    margin: 0 0 10px;
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(20px, 2vw, 26px);
+    letter-spacing: -0.02em; line-height: 1.2;
+  }
+  .svc-body h3 em{ font-style: italic; color: var(--accent); }
+  .svc-body p{ font-size: 15px; line-height: 1.6; color: var(--muted); max-width: 58ch; }
+  .svc-meta{
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--muted);
+    text-align: right;
+    white-space: nowrap;
+    padding-top: 6px;
+  }
+  @media (max-width: 720px){
+    .svc{ grid-template-columns: 1fr; gap: 8px; }
+    .svc-meta{ text-align: left; padding-top: 0; }
+  }
+
+  /* ─────────────── Pricing (single-line tier rows, no cards) ─────────────── */
+  .pricing{ border-top: 1px solid var(--rule); }
+  .tier{
+    display: grid; grid-template-columns: auto 1fr auto auto;
+    gap: clamp(20px, 3vw, 48px);
+    align-items: center;
+    padding: clamp(28px, 3.5vh, 36px) 0;
+    border-bottom: 1px solid var(--rule);
+    transition: padding-left .25s;
+  }
+  .tier:hover{ padding-left: 8px; }
+  .tier-num{
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: .14em; color: var(--muted);
+    min-width: 24px;
+  }
+  .tier-body h3{
+    margin: 0 0 4px;
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(20px, 1.9vw, 24px);
+    letter-spacing: -0.02em; line-height: 1.2;
+  }
+  .tier-body p{ font-size: 14px; line-height: 1.55; color: var(--muted); max-width: 50ch; }
+  .tier-price{
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(20px, 2vw, 26px);
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+  .tier-cta{
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--font-mono); font-size: 12px;
+    letter-spacing: .06em; text-transform: uppercase;
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 3px;
+    transition: opacity .2s, gap .2s;
+  }
+  .tier-cta:hover{ opacity: .6; gap: 10px; }
+  @media (max-width: 860px){
+    .tier{ grid-template-columns: auto 1fr; gap: 16px; }
+    .tier-price{ grid-column: 2; font-size: 18px; }
+    .tier-cta{ grid-column: 2; justify-self: start; }
+  }
+  .pricing-note{
+    margin-top: clamp(24px, 3vh, 32px);
+    font-size: 13px; line-height: 1.65; color: var(--muted);
+    max-width: 56ch;
+  }
+
+  /* ─────────────── Testimonials (3-up grid, no cards) ─────────────── */
+  .tests{
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  @media (max-width: 860px){ .tests{ grid-template-columns: 1fr; } }
+  .test{
+    background: var(--paper);
+    padding: clamp(24px, 3vw, 36px);
+    display: flex; flex-direction: column; gap: 24px;
+    transition: background .2s;
+  }
+  .test:hover{ background: var(--card); }
+  .test-mark{ font-family: var(--font-display); color: var(--accent); font-size: 28px; line-height: 1; }
+  .test blockquote{
+    margin: 0; flex: 1;
+    font-family: var(--font-display); font-weight: 400; font-style: italic;
+    font-size: clamp(16px, 1.3vw, 19px);
+    line-height: 1.4; letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+  .test-attr{
+    display: flex; justify-content: space-between;
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .test-attr .where{ color: var(--accent); }
+
+  /* ─────────────── FAQ (accordion, matches homepage pattern) ─────────────── */
+  .faq{ border-top: 1px solid var(--rule); }
+  .faq-item{ border-bottom: 1px solid var(--rule); }
+  .faq-head{
+    display: grid; grid-template-columns: 1fr 24px;
+    gap: 16px; align-items: center;
+    padding: clamp(20px, 3vh, 28px) 0;
+    cursor: pointer; background: transparent; border: 0; width: 100%; text-align: left;
+    font-family: var(--font-body); color: var(--ink);
+    transition: padding-left .2s;
+  }
+  .faq-head:hover{ padding-left: 6px; }
+  .faq-q{
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(17px, 1.4vw, 20px);
+    line-height: 1.3; letter-spacing: -0.015em;
+  }
+  .faq .plus{
+    width: 20px; height: 20px; position: relative;
+    transition: transform .3s cubic-bezier(.19,1,.22,1);
+  }
+  .faq .plus::before, .faq .plus::after{
+    content:""; position:absolute; left:50%; top:50%; background: var(--ink);
+  }
+  .faq .plus::before{ width: 12px; height: 1px; transform: translate(-50%, -50%); }
+  .faq .plus::after{ width: 1px; height: 12px; transform: translate(-50%, -50%); }
+  .faq-item.open .plus{ transform: rotate(45deg); }
+  .faq-panel{
+    display: grid; grid-template-rows: 0fr;
+    transition: grid-template-rows .35s cubic-bezier(.19,1,.22,1);
+  }
+  .faq-item.open .faq-panel{ grid-template-rows: 1fr; }
+  .faq-panel > div{ overflow: hidden; }
+  .faq-panel p{
+    margin: 0; padding: 0 0 clamp(22px, 3vh, 32px) 0;
+    font-size: 15px; line-height: 1.7; color: var(--muted);
+    max-width: 62ch;
+  }
+
+  /* ─────────────── Cost beat ─────────────── */
+  .cost{
+    margin-top: clamp(48px, 7vh, 80px);
+    padding: clamp(28px, 4vh, 44px) clamp(28px, 4vw, 44px);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--card);
+  }
+  .cost p{
+    font-family: var(--font-display); font-weight: 380;
+    font-size: clamp(20px, 2.2vw, 28px);
+    line-height: 1.3; letter-spacing: -0.02em;
+    color: var(--ink);
+    max-width: 32ch;
+  }
+  .cost p em{ font-style: italic; color: var(--accent); }
+  .cost .small{
+    margin-top: 18px;
+    font-family: var(--font-body); font-size: 14px;
+    line-height: 1.6; color: var(--muted);
+    max-width: 56ch;
+    font-style: normal;
+    letter-spacing: 0;
+  }
+
+  /* ─────────────── Final CTA ─────────────── */
+  .final{
+    margin-top: clamp(64px, 9vh, 112px);
+    padding: clamp(56px, 8vh, 96px) 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .final-grid{
+    display: grid; grid-template-columns: 1fr auto;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: end;
+  }
+  @media (max-width: 720px){ .final-grid{ grid-template-columns: 1fr; align-items: start; } }
+  .final h2{
+    margin: 0;
+    font-family: var(--font-display); font-weight: 380;
+    font-size: clamp(36px, 5.5vw, 72px);
+    line-height: 1.02; letter-spacing: -0.035em;
+    max-width: 16ch;
+  }
+  .final h2 em{ font-style: italic; color: var(--accent); }
+  .final-sub{
+    margin-top: 20px;
+    font-size: clamp(15px, 1.2vw, 17px);
+    line-height: 1.6; color: var(--muted);
+    max-width: 46ch;
+  }
+
+  /* ─────────────── Footer ─────────────── */
+  .footer{ padding: clamp(40px, 6vw, 64px) 0 36px; }
+  .foot-row{
+    display: flex; justify-content: space-between; align-items: center; gap: 24px;
+    flex-wrap: wrap;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+  }
+  .foot-links{ display: flex; gap: 20px; }
+  .foot-links a{ transition: color .2s; }
+  .foot-links a:hover{ color: var(--accent); }
+
+  /* ─────────────── Reveal ─────────────── */
+  .reveal{ opacity: 0; transform: translateY(12px); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
+  .reveal.in{ opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- ─────────────── Header ─────────────── -->
+<header class="header">
+  <div class="container">
+    <a class="brand" href="/">
+      <span class="dot" aria-hidden="true"></span>
+      Noel Cheung
+    </a>
+    <nav class="nav">
+      <a href="/"><span class="num">01</span>Work</a>
+      <a href="/coaching" class="current"><span class="num">02</span>Coaching</a>
+      <a href="/about"><span class="num">03</span>About</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ─────────────── Page intro (replaces hero band) ─────────────── -->
+<section class="page-intro">
+  <div class="container">
+
+    <div class="breadcrumb">
+      <a href="/">Index</a>
+      <span class="sep">/</span>
+      <span>Coaching &amp; Advisory</span>
+    </div>
+
+    <div class="intro-grid">
+      <h1 class="intro-h1 reveal">
+        You&rsquo;re doing the <em>work</em>. They&rsquo;re not seeing it.
+      </h1>
+
+      <div class="intro-side">
+        <p class="eyebrow label"><span class="num">02</span> Coaching · Open for Q1</p>
+        <p class="intro-lede reveal">
+          1:1 advisory for designers who are good at what they do, and still
+          stuck. Portfolio, interviews, career strategy, and longer-term
+          mentorship &mdash; with fifteen years across <em>fintech</em>, crypto, and
+          complex product.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─────────────── Two-column shell ─────────────── -->
+<div class="container">
+  <div class="shell">
+
+    <!-- Sticky rail -->
+    <aside class="rail">
+      <p class="eyebrow rail-label">On this page</p>
+      <nav class="rail-list" id="rail-nav">
+        <a href="#fit"><span class="num">01</span><span>Is this for you</span></a>
+        <a href="#approach"><span class="num">02</span><span>Approach</span></a>
+        <a href="#services"><span class="num">03</span><span>Services</span></a>
+        <a href="#words"><span class="num">04</span><span>In their words</span></a>
+        <a href="#pricing"><span class="num">05</span><span>Pricing</span></a>
+        <a href="#questions"><span class="num">06</span><span>Questions</span></a>
+      </nav>
+
+      <div class="rail-foot">
+        <p>Most weeks have one or two slots. Reach out and I&rsquo;ll send what&rsquo;s open.</p>
+        <a href="#contact" class="rail-cta">Book a call <span>↗</span></a>
+      </div>
+    </aside>
+
+    <!-- Right content -->
+    <main class="content">
+
+      <!-- ─── Block 01 — Is this for you (Without / With) ─── -->
+      <section class="block" id="fit">
+        <header class="block-head">
+          <p class="eyebrow reveal"><span class="num">01</span> Is this for you</p>
+          <h2 class="reveal">Most designers aren&rsquo;t blocked by <em>talent</em>.</h2>
+          <p class="block-lede reveal">
+            They&rsquo;re blocked by uncertainty, positioning, communication,
+            and momentum &mdash; the things no tutorial quite teaches. If any
+            of the left column sounds familiar, the right is what we&rsquo;re
+            working towards.
+          </p>
+        </header>
+
+        <div class="compare reveal">
+          <div class="compare-col before">
+            <p class="compare-label"><span class="dot"></span>Right now</p>
+            <ul class="compare-list">
+              <li>You&rsquo;re applying everywhere and hearing very little back.</li>
+              <li>Your portfolio shows what you did, not why it mattered.</li>
+              <li>You freeze when asked to explain your thinking out loud.</li>
+              <li>You&rsquo;ve been ready for senior for a while &mdash; no one has noticed.</li>
+              <li>You&rsquo;re rebuilding after burnout, a long gap, or a layoff.</li>
+              <li>You want to move into fintech or crypto and don&rsquo;t know how.</li>
+            </ul>
+          </div>
+
+          <div class="compare-col after">
+            <p class="compare-label"><span class="dot"></span>After our work</p>
+            <ul class="compare-list">
+              <li>You apply to fewer roles, but you hear back from more of them.</li>
+              <li>Your case studies read as decisions, trade-offs, and outcomes.</li>
+              <li>You speak about your work clearly, without rehearsing every line.</li>
+              <li>You can name what senior actually requires &mdash; and where you stand.</li>
+              <li>You have a realistic next quarter, not a fantasy five-year plan.</li>
+              <li>You know which companies to target, and which to skip.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── Block 02 — Approach (origin woven in) ─── -->
+      <section class="block" id="approach">
+        <header class="block-head">
+          <p class="eyebrow reveal"><span class="num">02</span> Approach</p>
+          <h2 class="reveal">I&rsquo;ve lived both sides of this <em>conversation</em>.</h2>
+        </header>
+
+        <div class="approach">
+          <p class="reveal">
+            For most of a decade I led design at OKX, HSBC, and Melco &mdash;
+            building systems, shipping product, hiring teams, sitting on the
+            other side of the interview table. I know what hiring managers
+            actually look for, because I was one.
+          </p>
+
+          <blockquote class="quoted reveal">
+            And then I spent three years on the candidate side.
+            <p class="quoted-attr">— 2022–25 · 200+ applications · primary research</p>
+          </blockquote>
+
+          <p class="reveal">
+            Some of it was burnout from a design systems role no one was using.
+            Some of it was the market. Most of it was the slow, grinding
+            realisation that the things I&rsquo;d been telling junior designers
+            for years &mdash; about portfolios, about positioning, about how to
+            tell the story of your work &mdash; were the same things I needed to
+            tell myself.
+          </p>
+
+          <p class="reveal">
+            That&rsquo;s the work we do here. <em>Not generic advice.</em> Not
+            another framework. A 1:1 conversation, structured around what you
+            actually need next, from someone who has spent three years
+            stress-testing this material on themselves.
+          </p>
+
+          <p class="reveal">
+            Quiet confidence over noise. Practical over performative. The
+            point isn&rsquo;t to hand you answers &mdash; it&rsquo;s to ask the
+            question that makes the answer obvious.
+          </p>
+        </div>
+      </section>
+
+      <!-- ─── Block 03 — Services ─── -->
+      <section class="block" id="services">
+        <header class="block-head">
+          <p class="eyebrow reveal"><span class="num">03</span> Services</p>
+          <h2 class="reveal">Four ways to <em>work together</em>.</h2>
+        </header>
+
+        <div class="svc-list">
+          <article class="svc reveal">
+            <div class="svc-num">01</div>
+            <div class="svc-body">
+              <h3>Portfolio &amp; Case Study Review</h3>
+              <p>A detailed review from a real hiring and product perspective. Focused on storytelling, structure, UX reasoning, and the gap between what your work shows and what it should.</p>
+            </div>
+            <div class="svc-meta">60 min · doc follow-up</div>
+          </article>
+
+          <article class="svc reveal">
+            <div class="svc-num">02</div>
+            <div class="svc-body">
+              <h3>Mock Interview Coaching</h3>
+              <p>Practice communication, presentation, and design-decision articulation under realistic pressure. Most mentees underestimate how much craft this requires.</p>
+            </div>
+            <div class="svc-meta">60–90 min · recorded</div>
+          </article>
+
+          <article class="svc reveal">
+            <div class="svc-num">03</div>
+            <div class="svc-body">
+              <h3>Career Strategy Session</h3>
+              <p>Clarify direction, identify the actual gaps, sharpen positioning, and leave with a realistic next quarter &mdash; not a fantasy five-year plan.</p>
+            </div>
+            <div class="svc-meta">90 min · strategy doc</div>
+          </article>
+
+          <article class="svc reveal">
+            <div class="svc-num">04</div>
+            <div class="svc-body">
+              <h3>Long-term Mentorship</h3>
+              <p>Ongoing support for designers navigating growth, transitions, leadership tracks, or difficult career phases. A standing seat with someone in your corner.</p>
+            </div>
+            <div class="svc-meta">Monthly · async + live</div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ─── Block 04 — Testimonials ─── -->
+      <section class="block" id="words">
+        <header class="block-head">
+          <p class="eyebrow reveal"><span class="num">04</span> In Their Words</p>
+          <h2 class="reveal">From 43 anonymous survey responses, six themes kept <em>coming back</em>.</h2>
+        </header>
+
+        <div class="tests reveal">
+          <figure class="test">
+            <span class="test-mark">&ldquo;</span>
+            <blockquote>Noel doesn&rsquo;t hand you answers. He asks the question that makes the answer obvious.</blockquote>
+            <figcaption class="test-attr"><span>Product Designer</span><span class="where">India</span></figcaption>
+          </figure>
+          <figure class="test">
+            <span class="test-mark">&ldquo;</span>
+            <blockquote>The most useful sixty minutes I&rsquo;ve spent on my career in a year.</blockquote>
+            <figcaption class="test-attr"><span>Senior Designer</span><span class="where">United Kingdom</span></figcaption>
+          </figure>
+          <figure class="test">
+            <span class="test-mark">&ldquo;</span>
+            <blockquote>Honest, structured, and zero fluff. I came back three more times.</blockquote>
+            <figcaption class="test-attr"><span>Mid-level Designer</span><span class="where">Brazil</span></figcaption>
+          </figure>
+          <figure class="test">
+            <span class="test-mark">&ldquo;</span>
+            <blockquote>He understood my situation in fifteen minutes. I&rsquo;d been stuck for six months.</blockquote>
+            <figcaption class="test-attr"><span>Fintech transition</span><span class="where">Germany</span></figcaption>
+          </figure>
+          <figure class="test">
+            <span class="test-mark">&ldquo;</span>
+            <blockquote>Calm, sharp, generous with experience. Exactly the mentor I needed.</blockquote>
+            <figcaption class="test-attr"><span>Junior Designer</span><span class="where">Philippines</span></figcaption>
+          </figure>
+          <figure class="test">
+            <span class="test-mark">&ldquo;</span>
+            <blockquote>My portfolio finally tells the story I&rsquo;d been trying to tell for years.</blockquote>
+            <figcaption class="test-attr"><span>Senior Designer</span><span class="where">Canada</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ─── Block 05 — Pricing (rows, not cards) ─── -->
+      <section class="block" id="pricing">
+        <header class="block-head">
+          <p class="eyebrow reveal"><span class="num">05</span> Pricing</p>
+          <h2 class="reveal">Pricing without the <em>theatre</em>.</h2>
+        </header>
+
+        <div class="pricing">
+          <article class="tier reveal">
+            <div class="tier-num">01</div>
+            <div class="tier-body">
+              <h3>Single Session</h3>
+              <p>One focused conversation. Portfolio, interview, or strategy.</p>
+            </div>
+            <div class="tier-price">USD 180</div>
+            <a href="#contact" class="tier-cta">Book <span>↗</span></a>
+          </article>
+
+          <article class="tier reveal">
+            <div class="tier-num">02</div>
+            <div class="tier-body">
+              <h3>3-Session Sprint</h3>
+              <p>Three sessions across 4–6 weeks, structured around one outcome. Includes a portfolio audit and async review between sessions.</p>
+            </div>
+            <div class="tier-price">USD 480</div>
+            <a href="#contact" class="tier-cta">Start <span>↗</span></a>
+          </article>
+
+          <article class="tier reveal">
+            <div class="tier-num">03</div>
+            <div class="tier-body">
+              <h3>Long-term Mentorship</h3>
+              <p>Monthly live + async, by application. For longer-term growth, leadership tracks, or difficult transitions.</p>
+            </div>
+            <div class="tier-price">USD 600 / mo</div>
+            <a href="#contact" class="tier-cta">Apply <span>↗</span></a>
+          </article>
+        </div>
+
+        <p class="pricing-note reveal">
+          Rates are guidance, not gospel. Reach out if your situation
+          doesn&rsquo;t fit a tidy bucket &mdash; most don&rsquo;t. Reduced
+          rates available for designers between roles.
+        </p>
+
+        <!-- Cost beat — borrowed from Career Mastery but reframed -->
+        <div class="cost reveal">
+          <p>A year stuck at the wrong level is rarely just <em>a year</em>.</p>
+          <p class="small">It&rsquo;s salary, scope, opportunities you didn&rsquo;t get, and confidence
+            that quietly compounds in the wrong direction. Most of my mentees
+            spend less on a quarter of coaching than they were losing in a
+            month of being overlooked.</p>
+        </div>
+      </section>
+
+      <!-- ─── Block 06 — FAQ ─── -->
+      <section class="block" id="questions">
+        <header class="block-head">
+          <p class="eyebrow reveal"><span class="num">06</span> Questions</p>
+          <h2 class="reveal">Things mentees usually <em>ask first</em>.</h2>
+        </header>
+
+        <div class="faq" id="faq">
+          <div class="faq-item">
+            <button class="faq-head">
+              <span class="faq-q">Do you take Asia time zones?</span>
+              <span class="plus" aria-hidden="true"></span>
+            </button>
+            <div class="faq-panel"><div><p>
+              Yes &mdash; I&rsquo;m based in Fukuoka. APAC mornings are easiest;
+              evenings work for European and US East Coast mentees. US West
+              Coast usually means an early-morning slot on my side, which I
+              keep open for ongoing mentees.
+            </p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-head">
+              <span class="faq-q">What if I&rsquo;m not actively job-hunting?</span>
+              <span class="plus" aria-hidden="true"></span>
+            </button>
+            <div class="faq-panel"><div><p>
+              Most of my mentees aren&rsquo;t. Plenty come for portfolio
+              rebuilds, leadership-track conversations, navigating a difficult
+              manager, or thinking through whether to leave a role. Job search
+              is one outcome; clarity is the actual product.
+            </p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-head">
+              <span class="faq-q">Are you a recruiter or a job-placement service?</span>
+              <span class="plus" aria-hidden="true"></span>
+            </button>
+            <div class="faq-panel"><div><p>
+              No. I don&rsquo;t place candidates and I don&rsquo;t take fees
+              from companies. The advice is yours, not optimised for anyone
+              else&rsquo;s hiring pipeline.
+            </p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-head">
+              <span class="faq-q">Do you coach non-designers?</span>
+              <span class="plus" aria-hidden="true"></span>
+            </button>
+            <div class="faq-panel"><div><p>
+              Occasionally &mdash; product managers, design engineers, and
+              founders. If your work touches product judgment and design taste,
+              we&rsquo;ll probably find useful ground.
+            </p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-head">
+              <span class="faq-q">How quickly do sessions usually book up?</span>
+              <span class="plus" aria-hidden="true"></span>
+            </button>
+            <div class="faq-panel"><div><p>
+              Most weeks have one or two slots. Sprints and ongoing
+              mentorships are by application and usually start with a 20-minute
+              fit call before anything is booked.
+            </p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-head">
+              <span class="faq-q">Can I expense this through work?</span>
+              <span class="plus" aria-hidden="true"></span>
+            </button>
+            <div class="faq-panel"><div><p>
+              Yes &mdash; many mentees use their professional development
+              budget. I&rsquo;ll send a proper invoice on request.
+            </p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── Final CTA ─── -->
+      <section class="final" id="contact">
+        <div class="final-grid">
+          <div>
+            <h2 class="reveal">Tell me where you feel <em>stuck</em>.</h2>
+            <p class="final-sub reveal">
+              A short note about your situation is all I need to start. If we&rsquo;re
+              not a fit, I&rsquo;ll say so &mdash; and point you somewhere better.
+            </p>
+          </div>
+          <div class="cta-row reveal">
+            <a href="https://cal.com/noelcheung" class="btn btn-primary">
+              Book a call <span class="arrow">↗</span>
+            </a>
+            <a href="mailto:hello@noelcheung.design" class="btn btn-ghost">
+              Email
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+</div>
+
+<!-- ─────────────── Footer ─────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="foot-row">
+      <span>© 2026 Noel Cheung · Built with Claude</span>
+      <div class="foot-links">
+        <a href="#">ADPList</a>
+        <a href="#">LinkedIn</a>
+        <a href="mailto:hello@noelcheung.design">Email</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reveal observer
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { rootMargin: '-8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // FAQ accordion (single-open)
+  document.querySelectorAll('#faq .faq-head').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('#faq .faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // Sticky rail — active section highlight
+  const sections = document.querySelectorAll('.content .block, .content .final');
+  const railLinks = document.querySelectorAll('#rail-nav a');
+  const railMap = new Map();
+  railLinks.forEach(a => railMap.set(a.getAttribute('href').slice(1), a));
+
+  const railObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        if (railMap.has(id)) {
+          railLinks.forEach(l => l.classList.remove('active'));
+          railMap.get(id).classList.add('active');
+        }
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+
+  sections.forEach(s => railObserver.observe(s));
+</script>
+
+</body>
+</html>
