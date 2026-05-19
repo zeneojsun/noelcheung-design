@@ -169,7 +169,7 @@ export default function MelcoPage() {
             ))}
           </div>
 
-          <ImgBlock gradient={HERO_GRADIENT} label="Melco limo booking — before and after redesign · personalised APAC how-to experience" caption="Limo booking before/after · Personalised "How To" experience across APAC languages" />
+          <ImgBlock gradient={HERO_GRADIENT} label="Melco limo booking — before and after redesign · personalised APAC how-to experience" caption={'Limo booking before/after · Personalised “How To” experience across APAC languages'} />
           <ImgBlock gradient={HERO_GRADIENT} label="Melco limo booking redesign — Explore the Best of Melco · vehicle class selection" caption="Limo booking redesign — Melco Premium Limousine Service · Vehicle class selection · Personal data flow" />
         </div>
 
