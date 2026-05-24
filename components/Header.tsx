@@ -17,7 +17,16 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`sticky top-0 z-50 h-[68px] flex items-center border-b transition-all duration-300 ${scrolled ? "header-backdrop border-rule" : "bg-transparent border-transparent"}`}>
+    <header
+      className="sticky top-0 z-50 h-[68px] flex items-center border-b"
+      style={{
+        background: scrolled ? "color-mix(in srgb, var(--paper) 88%, transparent)" : "transparent",
+        backdropFilter: scrolled ? "blur(14px) saturate(140%)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(14px) saturate(140%)" : "none",
+        borderColor: scrolled ? "var(--rule)" : "transparent",
+        transition: "background 300ms ease, backdrop-filter 300ms ease, -webkit-backdrop-filter 300ms ease, border-color 300ms ease",
+      }}
+    >
       <div className="max-w-site mx-auto w-full px-5 md:px-8 lg:px-14 flex items-center justify-between gap-6">
         <Link href="/" className="font-sans font-medium text-[15px] tracking-[-0.02em] hover:opacity-70 transition-opacity">
           <span className="md:hidden">N.C</span>

@@ -80,15 +80,15 @@ export default function Home() {
         <section id="top" className="hero">
           <div className="max-w-site mx-auto px-5 md:px-8 lg:px-14">
 
-            <h1 className="display rise rise-1" style={{ fontSize: "clamp(44px, 7.6vw, 116px)", marginBottom: "clamp(24px, 3vh, 40px)", maxWidth: "14ch" }}>
+            <h1 className="display rise rise-1" style={{ fontSize: "clamp(44px, 7.6vw, 116px)", marginBottom: "clamp(24px, 3vh, 40px)" }}>
               Noel helps teams <em>fix</em> and launch products that actually <em>work</em><span style={{ color: "var(--ink)" }}>.</span>
             </h1>
 
-            <StatsSection />
-
-            <p className="lede rise rise-2" style={{ maxWidth: "56ch", fontSize: "clamp(17px, 1.45vw, 22px)", lineHeight: 1.5, color: "var(--ink)", marginTop: "clamp(48px, 6vh, 72px)", marginBottom: "clamp(36px, 5vh, 64px)" }}>
-              Fifteen years across <em>fintech</em>, crypto, and enterprise teams. I step into complex products, fix what&apos;s broken, and turn them into scalable systems — so teams can move faster and ship with confidence.
+            <p className="lede rise rise-2" style={{ maxWidth: "80%", fontSize: "clamp(17px, 1.45vw, 22px)", lineHeight: 1.5, color: "var(--ink)", marginBottom: "clamp(36px, 5vh, 64px)" }}>
+              Fifteen years across <em>fintech</em>, crypto, and enterprise teams. I step into complex products, fix what&apos;s broken, and turn them into scalable systems so teams can move faster and ship with confidence.
             </p>
+
+            <StatsSection />
 
             <div className="cta-row rise rise-5">
               <a href={siteConfig.cal} target="_blank" rel="noreferrer" className="btn btn-primary">
