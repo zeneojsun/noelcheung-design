@@ -2,13 +2,22 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { siteConfig } from "@/lib/site-config";
 
 export default function Header() {
   const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="header-backdrop sticky top-0 z-50 h-[68px] flex items-center border-b border-rule">
+    <header className={`sticky top-0 z-50 h-[68px] flex items-center border-b transition-all duration-300 ${scrolled ? "header-backdrop border-rule" : "bg-transparent border-transparent"}`}>
       <div className="max-w-site mx-auto w-full px-5 md:px-8 lg:px-14 flex items-center justify-between gap-6">
         <Link href="/" className="font-sans font-medium text-[15px] tracking-[-0.02em] hover:opacity-70 transition-opacity">
           <span className="md:hidden">N.C</span>

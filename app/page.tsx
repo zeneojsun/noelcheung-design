@@ -84,26 +84,11 @@ export default function Home() {
               Noel helps teams <em>fix</em> and launch products that actually <em>work</em><span style={{ color: "var(--ink)" }}>.</span>
             </h1>
 
-            <p className="lede rise rise-2" style={{ maxWidth: "56ch", fontSize: "clamp(17px, 1.45vw, 22px)", lineHeight: 1.5, color: "var(--ink)", marginBottom: "clamp(36px, 5vh, 64px)" }}>
+            <StatsSection />
+
+            <p className="lede rise rise-2" style={{ maxWidth: "56ch", fontSize: "clamp(17px, 1.45vw, 22px)", lineHeight: 1.5, color: "var(--ink)", marginTop: "clamp(48px, 6vh, 72px)", marginBottom: "clamp(36px, 5vh, 64px)" }}>
               Fifteen years across <em>fintech</em>, crypto, and enterprise teams. I step into complex products, fix what&apos;s broken, and turn them into scalable systems — so teams can move faster and ship with confidence.
             </p>
-
-            <div className="hero-meta-row rise rise-3">
-              <div className="meta-cell">
-                <span className="eyebrow k">Role</span>
-                <span className="v">Fractional Lead / Solo Designer</span>
-              </div>
-              <div className="meta-cell">
-                <span className="eyebrow k">Focus</span>
-                <span className="v">DX · 0→1 · Design systems · AI · Quick turnarounds</span>
-              </div>
-              <div className="meta-cell">
-                <span className="eyebrow k">Based</span>
-                <span className="v">Remote · Japan</span>
-              </div>
-            </div>
-
-            <StatsSection />
 
             <div className="cta-row rise rise-5">
               <a href={siteConfig.cal} target="_blank" rel="noreferrer" className="btn btn-primary">
